@@ -12,11 +12,8 @@
 
           <p class="price"> ${{ coin.item.data.price.toFixed(6) }} </p>
           <div class="graph-container">
-            <div :ref="'tradingWidget' + coin.item.id" class="tradingview-widget-container"
-              style="height:65px;width:218px">
-              <div class="tradingview-widget-container__widget" style="height:60px;width:100%">
-              </div>
-            </div>
+            <img :src="coin.item.data.sparkline" alt="graph">
+
           </div>
         </div>
       </div>
@@ -38,40 +35,13 @@ export default {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/search/trending');
         this.recommendCoins = response.data.coins.slice(0, 5);
-        this.$nextTick(() => {
-          this.recommendCoins.forEach((coin) => {
-            this.loadTradingViewWidget1(coin.item.symbol, coin.item.id);
-          });
-        });
+        
       } catch (error) {
         console.log("recommend coins:", error);
       }
     }
   },
-  loadTradingViewWidget1(symbol, id) {
-    const script1 = document.createElement('script');
-    script1.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
-    script1.async = true;
-    script1.innerHTML = JSON.stringify({
-      "autosize": false,
-      "width": 218,
-      "height": 65,
-      "symbol": `${symbol.toUpperCase()}USD`,
-      "interval": "D",
-      "timezone": "Etc/UTC",
-      "theme": "dark",
-      "style": "1",
-      "locale": "en",
-      "hide_top_toolbar": true,
-      "hide_legend": true,
-      "allow_symbol_change": false,
-      "save_image": false,
-      "calendar": false,
-      "hide_volume": true,
-      "support_host": "https://www.tradingview.com"
-    });
-    this.$refs[`tradingWidget${id}`][0].appendChild(script);
-  },
+
   mounted() {
     this.fetchRecommendCoins();
   }
@@ -87,13 +57,13 @@ export default {
 .coin-logo {
   width: 26px;
   height: 26px;
-  border-radius: 13px;
+  /* border-radius: 13px; */
 }
 
 .coin-box {
   width: 218px;
   height: 38px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   box-sizing: border-box;
 
 }
@@ -102,7 +72,7 @@ export default {
   box-sizing: border-box;
   width: 218px;
   height: 24px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 0;
 }
 
@@ -113,7 +83,7 @@ export default {
 }
 
 .recommendations {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-top: 20px;
   margin-right: 70px;
   margin-left: 70px;
@@ -135,7 +105,7 @@ export default {
   width: 252px;
   height: 160px;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid #E3E3E3;
   box-sizing: border-box;
   padding: 17px;
 }
@@ -144,6 +114,9 @@ export default {
   width: 218px;
   height: 65px;
   box-sizing: border-box;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  display: flex ;
+  justify-content: center;
+  align-items: center;
 }
 </style>
