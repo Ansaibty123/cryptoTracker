@@ -127,7 +127,7 @@ export default {
   width: 252px;
   height: 160px;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid #E3E3E3;
   box-sizing: border-box;
   padding: 17px;
 }
