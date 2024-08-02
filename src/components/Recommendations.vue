@@ -7,13 +7,10 @@
           <div class="Flex coin-box">
             <img :src="coin.item.thumb" alt="coin logo" class="coin-logo" />
             <span class="coin-name"> {{ coin.item.symbol }}</span>
-
           </div>
-
           <p class="price"> ${{ coin.item.data.price.toFixed(6) }} </p>
           <div class="graph-container">
             <img :src="coin.item.data.sparkline" alt="graph">
-
           </div>
         </div>
       </div>
@@ -23,29 +20,39 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   name: 'Recommendations',
   data() {
     return {
       recommendCoins: [],
-    }
+      intervalId: null,  // To store the interval ID
+    };
   },
   methods: {
     async fetchRecommendCoins() {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/search/trending');
         this.recommendCoins = response.data.coins.slice(0, 5);
-
       } catch (error) {
         console.log("recommend coins:", error);
       }
-    }
+    },
+    startPolling() {
+      this.fetchRecommendCoins();  // Initial fetch
+      this.intervalId = setInterval(this.fetchRecommendCoins, 1000); // Fetch every 60 seconds
+    },
+    stopPolling() {
+      clearInterval(this.intervalId);  // Clear the interval
+    },
   },
-
   mounted() {
-    this.fetchRecommendCoins();
-  }
-}
+    this.startPolling();  // Start polling when the component is mounted
+  },
+  beforeDestroy() {
+    this.stopPolling();  // Stop polling when the component is destroyed
+  },
+};
 </script>
 
 <style scoped>
@@ -66,7 +73,6 @@ export default {
   line-height: 19.36px;
   text-align: left;
   color: #202020;
-
 }
 
 .coin-logo {
@@ -80,7 +86,6 @@ export default {
   height: 38px;
   /* border: 1px solid red; */
   box-sizing: border-box;
-
 }
 
 .price {
@@ -89,7 +94,6 @@ export default {
   height: 24px;
   gap: 0px;
   opacity: 0px;
-
   margin: 0;
   font-family: Inter;
   font-size: 20px;

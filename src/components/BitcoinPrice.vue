@@ -4,19 +4,17 @@
 
     <div class="price-container">
       <div class="dollar">$ {{ priceUSD }}</div>
-
       <div class="rupees">₹ {{ priceINR }}</div>
     </div>
+
     <div>
       <div ref="tradingviewWidget" class="tradingview-widget-container"
-        style="width: 837px; height: 460px; ">
+        style="width: 837px; height: 460px;">
         <div class="tradingview-widget-container__widget" style="height:460px; width:100%"></div>
         <div class="tradingview-widget-copyright">
-          <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
-          </a>
+          <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"></a>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -29,6 +27,7 @@ export default {
     return {
       priceUSD: null,
       priceINR: null,
+      intervalId: null, // To store the interval ID
     };
   },
   methods: {
@@ -44,10 +43,9 @@ export default {
             }
           }
         );
-        console.log(response)
+        console.log(response);
         this.priceUSD = response.data.bitcoin.usd;
         this.priceINR = response.data.bitcoin.inr;
-        this.change24h = response.data.bitcoin.usd_24h_change;
       } catch (error) {
         console.error("There was an error fetching the Bitcoin price:", error);
       }
@@ -75,11 +73,21 @@ export default {
         "support_host": "https://www.tradingview.com"
       });
       this.$refs.tradingviewWidget.appendChild(script);
-    }
+    },
+    startPolling() {
+      this.fetchBitcoinPrice();  // Initial fetch
+      this.intervalId = setInterval(this.fetchBitcoinPrice, 5000); 
+    },
+    stopPolling() {
+      clearInterval(this.intervalId);  
+    },
   },
   mounted() {
-    this.fetchBitcoinPrice();
+    this.startPolling(); 
     this.loadTradingViewWidget();
+  },
+  beforeDestroy() {
+    this.stopPolling();  // Stop polling when the component is destroyed
   }
 };
 </script>
@@ -94,43 +102,33 @@ export default {
   display: flex;
   flex-direction: column;
   margin-left: 70px;
-  width: Hug (881px)px;
-  height: Fixed (760px)px;
+  width: 881px;
+  height: 760px;
   gap: 20px;
-  opacity: 0px;
 }
 
 .price-container {
   width: 161px;
   height: 66px;
-  gap: 0px;
-  opacity: 0px;
-
 }
 
 .dollar {
   width: 161px;
   height: 39px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Inter;
   font-size: 28px;
   font-weight: 600;
   line-height: 38.4px;
-  text-align: left;
   color: #0B1426;
 }
 
 .rupees {
   width: 94px;
   height: 27px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Inter;
   font-size: 16px;
   font-weight: 500;
   line-height: 27px;
-  text-align: left;
   color: #0B1426;
 }
 </style>

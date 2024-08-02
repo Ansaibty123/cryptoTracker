@@ -20,12 +20,14 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   name: 'Trending',
   data() {
     return {
       TrendingCoins: [],
-    }
+      intervalId: null,  // To store the interval ID
+    };
   },
   methods: {
     async fetchTrendingCoins() {
@@ -33,17 +35,26 @@ export default {
         const response = await axios.get('https://api.coingecko.com/api/v3/search/trending');
         this.TrendingCoins = response.data.coins.slice(6, 11);
         // console.log(response)
-        
       } catch (error) {
         console.log("Trending coins:", error);
       }
     },
+    startPolling() {
+      this.fetchTrendingCoins();  // Initial fetch
+      this.intervalId = setInterval(this.fetchTrendingCoins, 5000); // Fetch every 60 seconds
+    },
+    stopPolling() {
+      clearInterval(this.intervalId);  // Clear the interval
+    },
   },
-    
   mounted() {
-    this.fetchTrendingCoins();
-  }
-}
+    this.startPolling();  // Start polling when the component is mounted
+  },
+  beforeDestroy() {
+    this.stopPolling();  // Stop polling when the component is destroyed
+  },
+};
+
 </script>
 
 <style scoped>
