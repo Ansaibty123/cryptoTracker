@@ -7,13 +7,16 @@
 
       <div class="rupees">₹ {{ priceINR }}</div>
     </div>
-    <div ref="tradingviewWidget" class="tradingview-widget-container"
-      style="width: 837px; height: 460px; margin-left: 70px;">
-      <div class="tradingview-widget-container__widget" style="height:460px; width:100%"></div>
-      <div class="tradingview-widget-copyright">
-        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
-        </a>
+    <div>
+      <div ref="tradingviewWidget" class="tradingview-widget-container"
+        style="width: 837px; height: 460px; ">
+        <div class="tradingview-widget-container__widget" style="height:460px; width:100%"></div>
+        <div class="tradingview-widget-copyright">
+          <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+          </a>
+        </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -85,18 +88,16 @@ export default {
 .tradingview-widget-container {
   width: 837px;
   height: 515px;
-  margin-left: 70px;
 }
 
 .container {
-  width: 877px;
-  height: 654px;
-  top: 24px;
-  left: 24px;
-  gap: 40px;
-  opacity: 0px;
+  display: flex;
+  flex-direction: column;
   margin-left: 70px;
-
+  width: Hug (881px)px;
+  height: Fixed (760px)px;
+  gap: 20px;
+  opacity: 0px;
 }
 
 .price-container {

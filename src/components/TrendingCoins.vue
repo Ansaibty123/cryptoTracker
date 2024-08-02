@@ -6,7 +6,7 @@
         <div class="items">
           <div class="Flex coin-box">
             <img :src="coin.item.thumb" alt="coin logo" class="coin-logo" />
-            <span>{{ coin.item.name }} ({{ coin.item.symbol }})</span>
+            <span class="coin-name">{{ coin.item.symbol }}</span>
           </div>
           <p class="price"> ${{ coin.item.data.price.toFixed(6) }} </p>
           <div class="graph-container">
@@ -51,6 +51,20 @@ export default {
   display: flex;
   gap: 10px;
 }
+.coin-name {
+  gap: 0px;
+  opacity: 0px;
+  padding: 1px 0px 0px 0px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+  color: #202020;
+
+}
 
 .coin-logo {
   width: 26px;
@@ -67,10 +81,18 @@ export default {
 
 .price {
   box-sizing: border-box;
-  width: 218px;
+  width: 112px;
   height: 24px;
-  /* border: 1px solid red; */
+  gap: 0px;
+  opacity: 0px;
+
   margin: 0;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #171717;
 }
 
 .Trending {
@@ -85,11 +107,12 @@ export default {
 .title {
   width: 210px;
   height: 36px;
-  font-family: Inter, sans-serif;
+  font-family: Inter;
   font-weight: 600;
   font-size: 24px;
   line-height: 36px;
   color: #202020;
+
 }
 
 .items {

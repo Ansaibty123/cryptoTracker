@@ -44,6 +44,12 @@
   color: #000;
   font-size: 16px;
   padding: 10px 0px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 19.36px;
+  letter-spacing: -0.01em;
+  text-align: left;
+
 
 }
 
@@ -51,8 +57,10 @@
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 8px;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 8px;
+  margin-right: 70px;
 }
 </style>
