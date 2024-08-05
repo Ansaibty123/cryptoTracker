@@ -13,8 +13,8 @@
 
     <div class="price-container">
       <div class="price-box">
-        <span class="dollar">$ {{ priceUSD }}</span>
-        <span class="rupees">₹ {{ priceINR }}</span>
+        <span class="dollar">$ {{ formattedPriceUSD }}</span>
+        <span class="rupees">₹ {{ formattedPriceINR }}</span>
       </div>
 
       <span class="percentage-change">{{ percentageChange }}% (24H)</span>
@@ -45,6 +45,14 @@ export default {
       priceINR: null,
       percentageChange: null,
     };
+  },
+  computed: {
+    formattedPriceUSD() {
+      return new Intl.NumberFormat('en-US').format(this.priceUSD);
+    },
+    formattedPriceINR() {
+      return new Intl.NumberFormat('en-IN').format(this.priceINR);
+    },
   },
   methods: {
     async fetchBitcoinPrice() {
