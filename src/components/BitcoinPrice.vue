@@ -59,7 +59,7 @@ export default {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin');
         
-        console.log(response)
+        // console.log(response)
         this.coinImg = response.data.image.thumb;
         this.coinName = response.data.name;
         this.CoinSymbol = response.data.symbol;
