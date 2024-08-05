@@ -61,6 +61,6 @@
   font-size: 16px;
   cursor: pointer;
   border-radius: 8px;
-  /* margin-right: 70px; */
+
 }
 </style>

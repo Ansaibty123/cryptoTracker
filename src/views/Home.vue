@@ -8,7 +8,7 @@ import Poster from '@/components/Poster.vue';
 
 
 <template>
-  <Navbar />
+  <Navbar/>
   <div class="Flex">
     <BitcoinPrice />
     <Poster/>

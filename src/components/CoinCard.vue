@@ -4,7 +4,7 @@
       <img :src="coin.item.thumb" alt="coin logo" class="coin-logo" />
       <span class="coin-name">{{ coin.item.symbol }}</span>
     </div>
-    <p class="price"> ${{ coin.item.price_btc.toFixed(6) }} </p>
+    <p class="price"> ${{ coin.item.data.price.toFixed(6) }} </p>
     <div class="graph-container">
       <img :src="coin.item.data.sparkline" alt="graph">
     </div>
