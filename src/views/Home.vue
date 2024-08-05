@@ -19,6 +19,7 @@ import Poster from '@/components/Poster.vue';
 <style scoped>
 .Flex{
   display: flex;
+  justify-content: space-between;
   gap: 20px;
 }
 </style>

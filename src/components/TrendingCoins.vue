@@ -44,8 +44,9 @@ export default {
   margin-top: 20px;
   margin-right: 70px;
   margin-left: 70px;
-  width: 1300px;
+  width: 1400px;
   height: 246px;
+  box-sizing: border-box;
 }
 
 .title {
@@ -61,6 +62,8 @@ export default {
 .coin-list {
   display: flex;
   gap: 10px;
+
+  justify-content: space-between;
 }
 
 </style>
