@@ -59,8 +59,8 @@ export default {
         this.coinImg = response.data.image.thumb;
         this.priceUSD = response.data.market_data.current_price.usd;
         this.priceINR = response.data.market_data.current_price.inr;
-        this.percentageChange = response.market_data.price_change_percentage_24h;
-        this.rank = response.data.market_cap_rank;
+        this.percentageChange = response.market_data.market_cap_change_percentage_24h;
+        this.rank = response.data.market_data.market_cap_rank;
       } catch (error) {
         console.error('Error fetching the Bitcoin price:', error);
       }
