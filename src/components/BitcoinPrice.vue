@@ -101,6 +101,7 @@ export default {
 .coin-container {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .coin-logo {
