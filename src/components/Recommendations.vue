@@ -1,9 +1,12 @@
 <template>
   <div class="recommendations">
     <div class="title">You may also like</div>
-    <CoinCard :coins="recommendCoins" />
+    <div class="coin-list">
+      <CoinCard v-for="coin in recommendCoins" :key="coin.item.id" :coin="coin" />
+    </div>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -54,5 +57,9 @@ export default {
   font-size: 24px;
   line-height: 36px;
   color: #202020;
+}
+.coin-list {
+  display: flex;
+  gap: 10px;
 }
 </style>

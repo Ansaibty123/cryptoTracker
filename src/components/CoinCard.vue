@@ -1,25 +1,22 @@
 <template>
-    <div class="Flex">
-      <div v-for="coin in coins" :key="coin.item.id">
-        <div class="items">
-          <div class="Flex coin-box">
-            <img :src="coin.item.thumb" alt="coin logo" class="coin-logo" />
-            <span class="coin-name">{{ coin.item.symbol }}</span>
-          </div>
-          <p class="price"> ${{ coin.item.data.price.toFixed(6) }} </p>
-          <div class="graph-container">
-            <img :src="coin.item.data.sparkline" alt="graph">
-          </div>
-        </div>
-      </div>
+  <div class="items">
+    <div class="Flex coin-box">
+      <img :src="coin.item.thumb" alt="coin logo" class="coin-logo" />
+      <span class="coin-name">{{ coin.item.symbol }}</span>
     </div>
+    <p class="price"> ${{ coin.item.price_btc.toFixed(6) }} </p>
+    <div class="graph-container">
+      <img :src="coin.item.data.sparkline" alt="graph">
+    </div>
+  </div>
 </template>
+
 <script>
 export default {
     name : "CoinCard",
     props : {
-        coins : {
-            type : Array,
+        coin : {
+            type : Object,
             required : true,
         }
     }

@@ -1,9 +1,12 @@
 <template>
   <div class="Trending">
     <div class="title">Trending</div>
-    <CoinCard :coins="TrendingCoins"/>
+    <div class="coin-list">
+      <CoinCard v-for="coin in TrendingCoins" :key="coin.item.id" :coin="coin" />
+    </div>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -21,7 +24,7 @@ export default {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/search/trending');
         this.TrendingCoins = response.data.coins.slice(6, 11);
-        // console.log(response)
+        console.log(response)
 
       } catch (error) {
         console.log("Trending coins:", error);
@@ -55,4 +58,9 @@ export default {
   color: #202020;
 
 }
+.coin-list {
+  display: flex;
+  gap: 10px;
+}
+
 </style>
