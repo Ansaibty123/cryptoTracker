@@ -60,7 +60,7 @@ export default {
         this.priceUSD = response.data.market_data.current_price.usd;
         this.priceINR = response.data.market_data.current_price.inr;
         this.percentageChange = response.market_data.market_cap_change_percentage_24h;
-        this.rank = response.data.market_data.market_cap_rank;
+        this.rank = response.data.market_cap_rank;
       } catch (error) {
         console.error('Error fetching the Bitcoin price:', error);
       }
@@ -228,6 +228,6 @@ export default {
   line-height: 19.36px;
   text-align: center;
   color: #14B079;
-  
+  padding-top: 10px;
 }
 </style>
