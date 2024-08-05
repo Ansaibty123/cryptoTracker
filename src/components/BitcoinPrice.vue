@@ -1,17 +1,24 @@
 <template>
   <div class="container">
-    <div>
+    <div class="coin-container">
       <span>
-        <img :src="coinImg" alt="">
+        <img :src="coinImg" alt="coin logo" class="coin-logo">
       </span>
-      {{ CoinSymbol }}
+      <span class="coin-name">{{ coinName }}</span>
+      <span class="coin-symbol">
+        {{ CoinSymbol }}
+      </span>
+      <span class="rank"><span class="rank-sub">Rank # {{ rank }}</span></span>
     </div>
-    <span class="rank">Rank: {{ rank }}</span>
 
     <div class="price-container">
-      <div class="dollar">$ {{ priceUSD }}</div>
-      <span class="percentage-change">{{ percentageChange }}%</span>
-      <div class="rupees">₹ {{ priceINR }}</div>
+      <div class="price-box">
+        <span class="dollar">$ {{ priceUSD }}</span>
+        <span class="rupees">₹ {{ priceINR }}</span>
+      </div>
+
+      <span class="percentage-change">{{ percentageChange }}% (24H)</span>
+
     </div>
     <div>
       <div ref="tradingviewWidget" class="tradingview-widget-container" style="width: 837px; height: 460px;">
@@ -26,10 +33,12 @@
 
 <script>
 import axios from 'axios';
+import bitcoin from '@/assets/bitcoin.json'
 
 export default {
   data() {
     return {
+      coinName: null,
       priceUSD: null,
       priceINR: null,
       percentageChange: null,
@@ -42,13 +51,16 @@ export default {
     async fetchBitcoinPrice() {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin');
-        console.log(response);
-        this.CoinSymbol = response.data.Symbol;
+        // const response = bitcoin;
+        console.log(response)
+        this.coinName = response.data.name;
+        this.CoinSymbol = response.data.symbol;
+
         this.coinImg = response.data.image.thumb;
         this.priceUSD = response.data.market_data.current_price.usd;
-        this.priceINR = response.data.priceINR;
-        this.percentageChange = response.data.percentageChange;
-        this.rank = response.data.rank;
+        this.priceINR = response.data.market_data.current_price.inr;
+        this.percentageChange = response.market_data.price_change_percentage_24h;
+        this.rank = response.data.market_cap_rank;
       } catch (error) {
         console.error('Error fetching the Bitcoin price:', error);
       }
@@ -86,6 +98,84 @@ export default {
 </script>
 
 <style scoped>
+.coin-container {
+  display: flex;
+  align-items: center;
+}
+
+.coin-logo {
+  width: 36px;
+  height: 36px;
+  gap: 0px;
+  opacity: 0px;
+
+}
+
+.coin-name {
+  width: 81px;
+  height: 29px;
+  top: -1px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28.8px;
+  text-align: left;
+  color: #0B1426;
+}
+
+.coin-symbol {
+  width: 33px;
+  height: 20px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.2px;
+  text-align: left;
+  color: #5D667B;
+
+}
+
+.rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  gap: 0px;
+  border-radius: 8px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  border: 1px solid #808A9D;
+  background: #768396;
+
+}
+
+.rank-sub {
+
+  width: 60px;
+  height: 20px;
+  top: 10px;
+  left: 212.22px;
+  gap: 0px;
+  opacity: 0px;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20.16px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.price-box {
+  display: flex;
+  flex-direction: column;
+}
+
 .tradingview-widget-container {
   width: 837px;
   height: 515px;
@@ -95,10 +185,10 @@ export default {
   display: flex;
   flex-direction: column;
   margin-left: 70px;
-  width: 881px; 
-  height: 760px; 
+  width: 881px;
+  height: 760px;
   gap: 20px;
-  opacity: 1; 
+  opacity: 1;
 }
 
 .rank {
@@ -108,13 +198,14 @@ export default {
 
 .price-container {
   display: flex;
-  flex-direction: column;
-  gap: 5px; 
-  opacity: 1; 
+
+  gap: 32px;
+  opacity: 1;
 }
 
-.dollar, .rupees, .percentage-change {
-  opacity: 1; 
+.dollar,
+.rupees {
+  opacity: 1;
   font-family: Inter;
   font-size: 28px;
   font-weight: 600;
@@ -130,9 +221,12 @@ export default {
 }
 
 .percentage-change {
+  font-family: Inter;
   font-size: 16px;
   font-weight: 500;
-  line-height: 27px;
-  color: #0B1426;
+  line-height: 19.36px;
+  text-align: center;
+  color: #14B079;
+  
 }
 </style>
