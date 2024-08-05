@@ -8,7 +8,7 @@
       <span class="coin-symbol">
         {{ CoinSymbol }}
       </span>
-      <span class="rank"><span class="rank-sub">Rank # {{ rank }}</span></span>
+      <span class="rank"><span class="rank-sub">Rank# {{ rank }}</span></span>
     </div>
 
     <div class="price-container">
@@ -33,34 +33,32 @@
 
 <script>
 import axios from 'axios';
-import bitcoin from '@/assets/bitcoin.json'
 
 export default {
   data() {
     return {
+      coinImg: null,
       coinName: null,
+      CoinSymbol: null,
+      rank: null,
       priceUSD: null,
       priceINR: null,
       percentageChange: null,
-      rank: null,
-      CoinSymbol: null,
-      coinImg: null,
     };
   },
   methods: {
     async fetchBitcoinPrice() {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin');
-        // const response = bitcoin;
+        
         console.log(response)
+        this.coinImg = response.data.image.thumb;
         this.coinName = response.data.name;
         this.CoinSymbol = response.data.symbol;
-
-        this.coinImg = response.data.image.thumb;
+        this.rank = response.data.market_cap_rank;
         this.priceUSD = response.data.market_data.current_price.usd;
         this.priceINR = response.data.market_data.current_price.inr;
-        this.percentageChange = response.market_data.market_cap_change_percentage_24h;
-        this.rank = response.data.market_cap_rank;
+        this.percentageChange = response.data.market_data.market_cap_change_percentage_24h;
       } catch (error) {
         console.error('Error fetching the Bitcoin price:', error);
       }
