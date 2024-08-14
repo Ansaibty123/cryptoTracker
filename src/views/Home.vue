@@ -4,6 +4,11 @@ import BitcoinPrice from '@/components/BitcoinPrice.vue';
 import Recommendations from '@/components/Recommendations.vue';
 import TrendingCoins from '@/components/TrendingCoins.vue';
 import Poster from '@/components/Poster.vue';
+import Sentiments from '@/components/Sentiments.vue';
+import About from '@/components/About.vue';
+import Tokenomics from '@/components/Tokenomics.vue';
+import Team from '@/components/Team.vue';
+import SecondNav from '@/components/SecondNav.vue';
 </script>
 
 
@@ -13,8 +18,14 @@ import Poster from '@/components/Poster.vue';
     <BitcoinPrice />
     <Poster/>
   </div>
+  <SecondNav/>
+  <Sentiments/>
+  <About/>
+  <Tokenomics/>
+  <Team/>
   <Recommendations />
   <TrendingCoins />
+
 </template>
 <style scoped>
 .Flex{
