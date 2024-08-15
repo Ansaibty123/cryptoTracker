@@ -13,24 +13,48 @@ import SecondNav from '@/components/SecondNav.vue';
 
 
 <template>
-  <Navbar/>
+  <Navbar />
   <div class="Flex">
-    <BitcoinPrice />
-    <Poster/>
+    <div class="coin-view">
+      <BitcoinPrice />
+    </div>
+    <div>
+      <Poster />
+    </div>
   </div>
-  <SecondNav/>
-  <Sentiments/>
-  <About/>
-  <Tokenomics/>
-  <Team/>
-  <Recommendations />
-  <TrendingCoins />
+  <SecondNav />
+  <Sentiments />
+  <About />
+  <Tokenomics />
+  <Team />
+  <div class="footer">
+    <Recommendations />
+    <TrendingCoins />
+  </div>
+
 
 </template>
 <style scoped>
-.Flex{
+.Flex {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  margin-right: 70px;
+  margin-left: 70px;
+  margin-bottom: 25px;
+  gap: 65px;
+  width: 881px;
+  height: 711px;
+  border-radius: 8px;
+  opacity: 0px;
+
+}
+
+.coin-view {
+  background-color: white;
+
+}
+
+.footer {
+  background-color: white;
 }
 </style>

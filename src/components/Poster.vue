@@ -27,7 +27,6 @@
     justify-content: space-around;
     color: white;
     text-align: center;
-    margin-right: 70px;
 }
 
 .text1 {

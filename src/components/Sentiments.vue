@@ -84,7 +84,7 @@
 .container {
     width: 881px;
     height: 556px;
-    padding: 24px 10px;
+    padding: 24px 20px;
     gap: 24px;
     border-radius: 8px 0px 0px 0px;
     opacity: 0px;
@@ -203,7 +203,7 @@
 }
 
 .box2 {
-    width: 368px;
+    width: 355px;
     height: 148px;
     top: -0.5px;
     left: 52px;

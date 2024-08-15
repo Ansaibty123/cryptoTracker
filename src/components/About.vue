@@ -96,6 +96,7 @@
     background-color: #FFFFFF;
     margin-left: 70px;
     box-sizing: border-box;
+    margin-bottom: 15px
 }
 .main-box{
     display: flex;

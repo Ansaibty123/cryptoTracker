@@ -58,7 +58,7 @@ export default {
     async fetchBitcoinPrice() {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin');
-        
+
         // console.log(response)
         this.coinImg = response.data.image.thumb;
         this.coinName = response.data.name;
@@ -191,7 +191,8 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
+  box-sizing: border-box;
+  padding: 24px 20px;
   width: 881px;
   height: 760px;
   gap: 20px;

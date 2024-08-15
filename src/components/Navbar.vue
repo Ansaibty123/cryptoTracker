@@ -1,66 +1,100 @@
 <template>
-  <div class="header-bar">
-    <img src="@/assets/logo.png" alt="KoinX" class="logo" />
-    <nav class="nav-links">
-      <a href="#">Crypto Taxes</a>
-      <a href="#">Free Tools</a>
-      <a href="#">Resource Center</a>
-      <button class="get-started">Get Started</button>
-    </nav>
+  <div class="container">
+    <div class="header-bar">
+      <img src="@/assets/logo.png" alt="KoinX" class="logo" />
+      <div class="nav-box">
+        <nav class="nav-links">
+          <a href="#">Crypto Taxes</a>
+          <a href="#">Free Tools</a>
+          <a href="#">Resource Center</a>
+
+
+        </nav>
+
+        <button class="get-started">Get Started</button>
+
+      </div>
+
+    </div>
+
   </div>
+
 </template>
 
-
 <style scoped>
-.header-bar {
-  width: 1440px;
+.container {
+  width: 1400px;
   height: 80px;
+  left: -0.15px;
+  padding: 0.5px 56px 0.5px 60px;
+  gap: 829.23px;
+  border: 0px 0px 1px 0px;
+  opacity: 0px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 12px 0px #1026490F;
+  margin-bottom: 15px;
+
+}
+
+.nav-box {
+  width: 909px;
+  height: 79px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 25px;
+
+  justify-content: flex-end;
+  padding-right: 10px;
+  gap: 15px;
 }
 
 .logo {
-  width: 96pxpx;
-  height: 72pxpx;
-  margin-left: 55px;
-  top: 4px;
-  gap: 72px;
+  width: 96px;
+  height: 72px;
   opacity: 0px;
+  margin-left: 10px;
 
+
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 15px;
+
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #000;
-  font-size: 16px;
-  padding: 10px 0px;
   font-family: Inter;
+  font-size: 16px;
   font-weight: 600;
   line-height: 19.36px;
   letter-spacing: -0.01em;
   text-align: left;
-
-
+  color: #0F1629;
 }
 
 .get-started {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px;
-  font-size: 16px;
-  cursor: pointer;
+  width: 136px;
+  height: 40px;
+  padding: 8px ;
+  gap: 8px;
   border-radius: 8px;
+  opacity: 0px;
+  color: white;
+  background: linear-gradient(81.62deg, #2870EA 8.72%, #1B4AEF 85.01%);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.36px;
+  letter-spacing: -0.01em;
+  margin-right: 7px ;
+
 
 }
 </style>
