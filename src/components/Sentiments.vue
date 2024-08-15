@@ -60,14 +60,12 @@
                 <div class="text5">Analyst Estimates</div>
                 <img src="@/assets/info.png" alt="info-logo">
             </div>
-            <div>
-                <div>
-                    76%
+            <div class="analyst-box">
+                <div class="percentage">
+                    <img src="@/assets/percentage.png" alt="">
                 </div>
-                <div>
-                    <div>Buy</div>
-                    <div>Hold</div>
-                    <div>Sell</div>
+                <div class="bar-box">
+                    <img src="@/assets/bar.png" alt="">
                 </div>
             </div>
         </section>
@@ -86,7 +84,7 @@
 .container {
     width: 881px;
     height: 556px;
-    padding: 24px 5px;
+    padding: 24px 10px;
     gap: 24px;
     border-radius: 8px 0px 0px 0px;
     opacity: 0px;
@@ -94,14 +92,15 @@
     flex-direction: column;
     box-sizing: border-box;
     margin-left: 70px;
-    background-color:#FFFFFF ;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
 
 }
 
 .container2 {
     width: 926px;
     height: 204px;
-    gap: 14px;
+    gap: 10px;
     opacity: 0px;
     display: flex;
 
@@ -115,7 +114,7 @@
 }
 
 .image-box {
-    width: 44px;
+    width: 40px;
     height: 44px;
     padding: 8.41px 8px 7.59px 8px;
     gap: 0px;
@@ -221,4 +220,23 @@
     background-color: #EBF9F4;
 
 }
+.analyst-box{
+    display: flex;
+}
+.bar-box{
+    width: Fill (553.14px)px;
+height: Hug (114px)px;
+gap: 0px;
+opacity: 0px;
+
+}
+.percentage {
+    width: 156.86px;
+    height: 120px;
+    padding: 10px 40px 0px 0px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+
 </style>

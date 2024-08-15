@@ -1,42 +1,174 @@
 <template>
-    <div>
-        About Bitcoin
-    </div>
-    <div>
-        <div>What is Bitcoin</div>
-        <div>Bitcoin’s price today is US$16,951.82, with a 24-hour trading volume of $19.14 B. BTC is +0.36% in the last
-            24 hours. It is currently -7.70% from its 7-day all-time high of $18,366.66, and 3.40% from its 7-day
-            all-time low of $16,394.75. BTC has a circulating supply of 19.24 M BTC and a max supply of 21 M BTC.</div>
-    </div>
-    <div>
-        <div>Lorem ipsum dolor sit amet</div>
-        <div>Lorem ipsum dolor sit amet consectetur. Aliquam placerat sit lobortis tristique pharetra. Diam id et lectus
-            urna et tellus aliquam dictum at. Viverra diam suspendisse enim facilisi diam ut sed. Quam scelerisque
-            fermentum sapien morbi sodales odio sed rhoncus. Ultricies urna volutpat pendisse enim facilisi diam ut sed.
-            Quam scelerisque fermentum sapien morbi sodales odio sed rhoncus.
-
-            Diam praesent massa dapibus magna aliquam a dictumst volutpat. Egestas vitae pellentesque auctor amet. Nunc
-            sagittis libero adipiscing cursus felis pellentesque interdum. Odio cursus phasellus velit in senectus enim
-            dui. Turpis tristique placerat interdum sed volutpat. Id imperdiet magna eget eros donec cursus nunc. Mauris
-            faucibus diam mi nunc praesent massa turpis a. Integer dignissim augue viverra nulla et quis lobortis
-            phasellus. Integer pellentesque enim convallis ultricies at.
-
-            Fermentum hendrerit imperdiet nulla viverra faucibus. Sit aliquam massa vel convallis duis ac. Mi adipiscing
-            semper scelerisque porttitor pulvinar nunc risus. Fermentum potenti iaculis lacinia congue ipsum fames amet
-            dui. Purus ultrices tincidunt volutpat in eget. Ullamcorper dui</div>
-    </div>
-    <div>
-        <div>Already Holding Bitcoin?</div>
-        <div>
-            <img src="" alt="">
-            <img src="" alt="">
+    <section class="container">
+        <div class="heading">
+            About Bitcoin
         </div>
-    </div>
-    <div>
-        Fermentum hendrerit imperdiet nulla viverra faucibus. Sit aliquam massa vel convallis duis ac. Mi adipiscing
-        semper scelerisque porttitor pulvinar nunc risus. Fermentum potenti iaculis lacinia congue ipsum fames amet dui.
-        Purus ultrices tincidunt volutpat in eget. Ullamcorper dui
+        <div class="main-box">
+            <div class="content ">
+                <div class="question">What is Bitcoin ?</div>
+                <div class="text text1">Bitcoin’s price today is US$16,951.82, with a 24-hour trading volume of $19.14
+                    B. BTC
+                    is
+                    +0.36% in the
+                    last
+                    24 hours. It is currently -7.70% from its 7-day all-time high of $18,366.66, and 3.40% from its
+                    7-day
+                    all-time low of $16,394.75. BTC has a circulating supply of 19.24 M BTC and a max supply of 21 M
+                    BTC.
+                </div>
+            </div>
+            <div>
+                <div class="question">Lorem ipsum dolor sit amet</div>
+                <div class="text text2"><span>
+                    Lorem ipsum dolor sit amet consectetur. Aliquam placerat sit lobortis tristique
+                    pharetra.
+                    Diam id et
+                    lectus
+                    urna et tellus aliquam dictum at. Viverra diam suspendisse enim facilisi diam ut sed. Quam
+                    scelerisque
+                    fermentum sapien morbi sodales odio sed rhoncus. Ultricies urna volutpat pendisse enim facilisi diam
+                    ut
+                    sed.
+                    Quam scelerisque fermentum sapien morbi sodales odio sed rhoncus. 
+                </span>
+                <span>
+                    Diam praesent massa dapibus magna aliquam a dictumst volutpat. Egestas vitae pellentesque auctor
+                    amet.
+                    Nunc
+                    sagittis libero adipiscing cursus felis pellentesque interdum. Odio cursus phasellus velit in
+                    senectus
+                    enim
+                    dui. Turpis tristique placerat interdum sed volutpat. Id imperdiet magna eget eros donec cursus
+                    nunc.
+                    Mauris
+                    faucibus diam mi nunc praesent massa turpis a. Integer dignissim augue viverra nulla et quis
+                    lobortis
+                    phasellus. Integer pellentesque enim convallis ultricies at. 
+                </span>
+
+            <span>
+
+                Fermentum hendrerit imperdiet nulla viverra faucibus. Sit aliquam massa vel convallis duis ac. Mi
+                    adipiscing
+                    semper scelerisque porttitor pulvinar nunc risus. Fermentum potenti iaculis lacinia congue ipsum
+                    fames
+                    amet
+                    dui. Purus ultrices tincidunt volutpat in eget. Ullamcorper dui
+            </span>
+
+                </div>
+            </div>
+            <div>
+                <div class="heading">Already Holding Bitcoin?</div>
+                <div class="image-box">
+                    <img src="@/assets/mobilepic.png" alt="">
+
+                </div>
+            </div>
+            <div class="text text3 ">
+                Fermentum hendrerit imperdiet nulla viverra faucibus. Sit aliquam massa vel convallis duis ac. Mi
+                adipiscing
+                semper scelerisque porttitor pulvinar nunc risus. Fermentum potenti iaculis lacinia congue ipsum fames
+                amet
+                dui.
+                Purus ultrices tincidunt volutpat in eget. Ullamcorper dui
 
 
-    </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
 </template>
+<style scoped>
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 881px;
+    height: 950px;
+    padding: 24px 20px 0px 20px;
+    gap: 24px;
+    border-radius: 8px 0px 0px 0px;
+    opacity: 0px;
+    background-color: #FFFFFF;
+    margin-left: 70px;
+    box-sizing: border-box;
+}
+.main-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.heading {
+    height: 29px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.8px;
+    text-align: left;
+    color: #0F1629;
+}
+
+.image-box {
+    width: 807px;
+    height: 151px;
+    gap: 16px;
+    opacity: 0px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+}
+
+.question {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.6px;
+    text-align: left;
+    height: 22px;
+    color: #0B1426;
+    padding-bottom: 10px;
+}
+
+.text {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25.6px;
+    text-align: left;
+    color: #3E424A;
+}
+
+.text1 {
+    width: 830px;
+    height: 78px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+
+.text2 {
+    width: 830px;
+    height: 364px;
+    gap: 0px;
+    opacity: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.tex3 {
+    width: 830px;
+    height: 130px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+</style>
