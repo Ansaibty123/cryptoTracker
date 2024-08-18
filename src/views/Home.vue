@@ -9,6 +9,7 @@ import About from '@/components/About.vue';
 import Tokenomics from '@/components/Tokenomics.vue';
 import Team from '@/components/Team.vue';
 import SecondNav from '@/components/SecondNav.vue';
+import Performance from '@/components/Performance.vue';
 </script>
 
 
@@ -23,6 +24,7 @@ import SecondNav from '@/components/SecondNav.vue';
     </div>
   </div>
   <SecondNav />
+<Performance/>
   <Sentiments />
   <About />
   <Tokenomics />

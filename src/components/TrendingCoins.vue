@@ -24,7 +24,7 @@ export default {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/search/trending');
         this.TrendingCoins = response.data.coins.slice(6, 11);
-        console.log(response)
+        // console.log(response)
 
       } catch (error) {
         console.log("Trending coins:", error);
