@@ -70,6 +70,7 @@ import Performance from '@/components/Performance.vue';
   }
   .Flex{
     margin: 0px 10px 0px 10px;
+    width: 384px;
   }
   .tokenomics{
     display: none;
