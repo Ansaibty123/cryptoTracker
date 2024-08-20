@@ -14,7 +14,8 @@ import Performance from '@/components/Performance.vue';
 
 
 <template>
-  <Navbar />
+  <div class="cointainer">
+    <Navbar />
   <div class="Flex">
     <div class="coin-view">
       <BitcoinPrice />
@@ -33,6 +34,8 @@ import Performance from '@/components/Performance.vue';
     <Recommendations />
     <TrendingCoins />
   </div>
+  </div>
+  
 
 
 </template>
@@ -59,6 +62,9 @@ import Performance from '@/components/Performance.vue';
   background-color: white;
 }
 @media(max-width:576px){
+  .container{
+    width: 384px;
+  }
   .poster{
     display: none;
   }
