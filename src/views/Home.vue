@@ -15,7 +15,7 @@ import Performance from '@/components/Performance.vue';
 
 <template>
   <Navbar />
-  <div class="Flex" id="coin-view-section">
+  <div class="Flex">
     <div class="coin-view">
       <BitcoinPrice />
     </div>
@@ -62,6 +62,7 @@ import Performance from '@/components/Performance.vue';
 
 .footer {
   background-color: white;
+  margin-bottom: 15px;
 }
 .poster2{
   display: none;
