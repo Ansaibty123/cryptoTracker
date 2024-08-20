@@ -167,9 +167,7 @@
 
 .text3 {
     width: 347px;
-    height: 40px;
-    gap: 0px;
-    opacity: 0px;
+    height: auto;
     font-family: SF Pro Text;
     font-size: 14px;
     font-weight: 500;
