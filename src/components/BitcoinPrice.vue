@@ -104,6 +104,15 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 24px 20px;
+  width: 881px;
+  gap: 20px;
+}
+
 .coin-container {
   display: flex;
   align-items: center;
@@ -113,37 +122,20 @@ export default {
 .coin-logo {
   width: 36px;
   height: 36px;
-  gap: 0px;
-  opacity: 0px;
-
 }
 
 .coin-name {
-  width: 81px;
-  height: 29px;
-  top: -1px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Inter;
   font-size: 24px;
   font-weight: 600;
-  line-height: 28.8px;
-  text-align: left;
   color: #0B1426;
 }
 
 .coin-symbol {
-  width: 33px;
-  height: 20px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Inter;
   font-size: 16px;
   font-weight: 600;
-  line-height: 19.2px;
-  text-align: left;
   color: #5D667B;
-
 }
 
 .rank {
@@ -152,29 +144,15 @@ export default {
   align-items: center;
   width: 80px;
   height: 40px;
-  gap: 0px;
   border-radius: 8px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
   border: 1px solid #808A9D;
   background: #768396;
-
 }
 
 .rank-sub {
-
-  width: 60px;
-  height: 20px;
-  top: 10px;
-  left: 212.22px;
-  gap: 0px;
-  opacity: 0px;
-
   font-family: Inter;
   font-size: 16px;
   font-weight: 500;
-  line-height: 20.16px;
-  text-align: left;
   color: #FFFFFF;
 }
 
@@ -188,53 +166,48 @@ export default {
   height: 515px;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 24px 20px;
-  width: 881px;
-  height: 760px;
-  gap: 20px;
-  opacity: 1;
-}
-
-.rank {
-  font-size: 16px;
-  color: #0B1426;
-}
-
 .price-container {
   display: flex;
-
   gap: 32px;
-  opacity: 1;
 }
 
 .dollar,
 .rupees {
-  opacity: 1;
   font-family: Inter;
   font-size: 28px;
   font-weight: 600;
-  line-height: 38.4px;
-  text-align: left;
   color: #0B1426;
 }
 
 .rupees {
   font-size: 16px;
   font-weight: 500;
-  line-height: 27px;
 }
 
 .percentage-change {
   font-family: Inter;
   font-size: 16px;
   font-weight: 500;
-  line-height: 19.36px;
-  text-align: center;
   color: #14B079;
   padding-top: 10px;
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 384px;
+    padding: 10px ;
+    border-radius: 8px;
+    border: 1px;
+    border: 1px solid #DEE1E6;
+    display: flex;
+    gap: 20px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+
+  }
+  .tradingview-widget-container {
+    height: auto;
+    max-width: 100%;
+  }
 }
 </style>

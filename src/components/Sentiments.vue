@@ -55,18 +55,22 @@
 
 
         </section>
-        <section>
+        <section class="analyst">
             <div class="flex">
                 <div class="text5">Analyst Estimates</div>
                 <img src="@/assets/info.png" alt="info-logo">
             </div>
             <div class="analyst-box">
-                <div class="percentage">
-                    <img src="@/assets/percentage.png" alt="">
-                </div>
+                
+                    <img src="@/assets/percentage.png" alt="" class="percentage">
+                
                 <div class="bar-box">
-                    <img src="@/assets/bar.png" alt="">
+                    <img src="@/assets/bar.png" alt="" class="image2">
                 </div>
+                <div class="bar-box2">
+                    <img src="@/assets/bar2.png" alt="" class="image2">
+                </div>
+               
             </div>
         </section>
 
@@ -83,7 +87,6 @@
 
 .container {
     width: 881px;
-    height: 556px;
     padding: 24px 20px;
     gap: 24px;
     border-radius: 8px 0px 0px 0px;
@@ -204,7 +207,6 @@
 
 .box2 {
     width: 355px;
-    height: 148px;
     top: -0.5px;
     left: 52px;
     gap: 8px;
@@ -220,23 +222,90 @@
     background-color: #EBF9F4;
 
 }
-.analyst-box{
+
+.analyst-box {
     display: flex;
 }
-.bar-box{
-    width: Fill (553.14px)px;
-height: Hug (114px)px;
-gap: 0px;
-opacity: 0px;
+
+.bar-box {
+    width: 553.14px;
+    height: 114px;
+    gap: 0px;
+    opacity: 0px;
 
 }
+
+
 .percentage {
     width: 156.86px;
     height: 120px;
     padding: 10px 40px 0px 0px;
-    gap: 0px;
     opacity: 0px;
 
+}
+.bar-box {
+    width: 553.14px;
+    height: 114px;
+}
+
+.bar-box2 {
+    display: none;
+}
+
+@media(max-width:576px) {
+    .container {
+        width: 384px;
+        padding: 10px;
+        border-radius: 8px;
+        box-sizing: border-box;
+        margin-left: 10px;
+        margin-right: 10px;
+        gap: 20px;
+    }
+
+    .container2 {
+        /* flex-direction: column; */
+        width: 100%;
+        height: auto;
+        gap: 10px;
+    }
+
+    .box {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .trending {
+        display: none;
+    }
+
+    .text4 {
+        width: 300px;
+    }
+
+    .analyst-box {
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    .percentage {
+        width: 100px;
+        height: 100px;
+        padding: 0;
+    }
+
+    .bar-box {
+        display: none;
+    }
+
+    .bar-box2 {
+        display: flex;
+    }
+
+    .image2 {
+        width: 100%;
+        height: 120px;
+    }
 }
 
 </style>

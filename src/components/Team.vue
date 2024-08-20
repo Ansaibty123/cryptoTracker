@@ -56,7 +56,7 @@
 <style scoped>
 .container {
     width: 881px;
-    height: 776px;
+    /* height: 776px; */
     padding: 24px 20px;
     gap: 24px;
     border-radius: 8px 0px 0px 0px;

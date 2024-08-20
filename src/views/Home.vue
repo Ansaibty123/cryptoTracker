@@ -19,7 +19,7 @@ import Performance from '@/components/Performance.vue';
     <div class="coin-view">
       <BitcoinPrice />
     </div>
-    <div>
+    <div class="poster">
       <Poster />
     </div>
   </div>
@@ -27,7 +27,7 @@ import Performance from '@/components/Performance.vue';
 <Performance/>
   <Sentiments />
   <About />
-  <Tokenomics />
+  <Tokenomics class="tokenomics"/>
   <Team />
   <div class="footer">
     <Recommendations />
@@ -45,7 +45,6 @@ import Performance from '@/components/Performance.vue';
   margin-bottom: 25px;
   gap: 65px;
   width: 881px;
-  height: 711px;
   border-radius: 8px;
   opacity: 0px;
 
@@ -59,4 +58,16 @@ import Performance from '@/components/Performance.vue';
 .footer {
   background-color: white;
 }
+@media(max-width:576px){
+  .poster{
+    display: none;
+  }
+  .Flex{
+    margin: 0px 10px 0px 10px;
+  }
+  .tokenomics{
+    display: none;
+  }
+}
+
 </style>

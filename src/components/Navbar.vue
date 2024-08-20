@@ -82,7 +82,7 @@
 .get-started {
   width: 136px;
   height: 40px;
-  padding: 8px ;
+  padding: 8px;
   gap: 8px;
   border-radius: 8px;
   opacity: 0px;
@@ -93,8 +93,19 @@
   font-weight: 600;
   line-height: 19.36px;
   letter-spacing: -0.01em;
-  margin-right: 7px ;
+  margin-right: 7px;
+}
 
-
+@media (max-width:576px) {
+  .container {
+    width: 411px;
+    height: 64px;
+    gap: 0px;
+    opacity: 0px;
+    box-sizing: border-box;
+  }
+  .nav-box{
+    display: none;
+  }
 }
 </style>

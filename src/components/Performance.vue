@@ -77,7 +77,8 @@
           <div class="item" v-if="fundamentals.atl">
             <div class="text1">All-Time Low</div>
             <div class="value">{{ fundamentals.atl }} <div class="change positive">{{ fundamentals.atlChangePercent
-                }}%</div></div>
+                }}%</div>
+            </div>
             <div class="date">{{ fundamentals.atlDate }}</div>
           </div>
         </section>
@@ -130,7 +131,7 @@ export default {
         .get("https://api.coingecko.com/api/v3/coins/bitcoin")
         .then((response) => {
           const data = response.data;
-          console.log(data);
+          // console.log(data);
 
           try {
             this.performance.todayLow = this.formatPrice(data.market_data.low_24h.usd);
@@ -198,14 +199,17 @@ export default {
   box-sizing: border-box;
   margin-bottom: 15px;
 }
-.flex{
- display: flex; 
- flex-direction: column;
- gap: 15px;
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-.performance{
+
+.performance {
   margin-bottom: 25px;
 }
+
 .title {
   width: 151px;
   height: 29px;
@@ -323,5 +327,22 @@ export default {
 .date {
   font-size: 0.8rem;
   color: gray;
+}
+
+@media(max-width:576px) {
+  .container {
+    width: 365px;
+    padding: 10px;
+    gap: 0px;
+    border-radius: 8px;
+    border: 1px;
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-right: 10px;
+
+  }
+  .fundamental-box{
+    flex-direction: column;
+  }
 }
 </style>
