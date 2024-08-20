@@ -276,7 +276,10 @@
     .trending {
         display: none;
     }
-
+    .text3{
+        width: 100%;
+        height: auto;
+    }
     .text4 {
         width: 300px;
     }
