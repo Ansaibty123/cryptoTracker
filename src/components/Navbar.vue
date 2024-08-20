@@ -100,12 +100,19 @@
   .container {
     width: 411px;
     height: 64px;
-    gap: 0px;
-    opacity: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
     box-sizing: border-box;
   }
-  .nav-box{
+
+  .nav-box {
     display: none;
+  }
+
+  .logo {
+    width: 81px;
+    height: 60.75px;
+
   }
 }
 </style>
