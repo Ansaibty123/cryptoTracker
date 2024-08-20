@@ -31,7 +31,7 @@ div a {
 
 .links {
     width: 106px;
-    height: 60px;
+    height: 70px;
     gap: 6px;
     text-align: center;
 }
@@ -48,5 +48,9 @@ div a {
         overflow-x: auto;
         white-space: nowrap;
     }
+    .links{
+        height: auto;
+    }
+
 }
 </style>
