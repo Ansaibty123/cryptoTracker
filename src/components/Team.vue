@@ -6,7 +6,6 @@
         <div class="text">
             Lorem ipsum dolor sit amet consectetur. Id consequat adipiscing arcu nibh. Eget mattis in mi integer sit
             egestas. Proin tempor id pretium quam. Facilisis purus convallis quam augue.
-
         </div>
         <div class="person-box">
             <div class="person">
@@ -56,7 +55,6 @@
 <style scoped>
 .container {
     width: 881px;
-    /* height: 776px; */
     padding: 24px 20px;
     gap: 24px;
     border-radius: 8px 0px 0px 0px;
@@ -137,5 +135,32 @@
     line-height: 18.15px;
     text-align: center;
     color: #0F1629;
+}
+@media(max-width:576px) {
+  .container {
+    width: 384px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px;
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .person-box{
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    box-sizing: border-box;
+    height: auto;
+    padding: 20px;
+  }
+  .text{
+    width: 384px;
+    height: auto;
+  }
+
 }
 </style>

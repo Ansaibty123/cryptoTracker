@@ -3,27 +3,27 @@
     <div class="performance">
       <div class="title">Performance</div>
       <div class="range" v-if="performance.todayLow && performance.todayHigh && performance.currentPrice">
-        <div>
+        <div class="flex2">
           <div class="text1">Today's Low</div>
           <div class="price1">{{ performance.todayLow }}</div>
         </div>
         <div class="bar">
           <span :style="{ left: getPosition() + '%' }">{{ performance.currentPrice }}</span>
         </div>
-        <div>
+        <div class="flex2">
           <div class="text1">Today's High</div>
           <div class="price1">{{ performance.todayHigh }}</div>
         </div>
       </div>
       <div class="range" v-if="performance.yearLow && performance.yearHigh && performance.currentPrice">
-        <div>
+        <div class="flex2">
           <div class="text1">52W Low</div>
           <div class="price1">{{ performance.yearLow }}</div>
         </div>
         <div class="bar">
           <span :style="{ left: getPosition52W() + '%' }">{{ performance.currentPrice }}</span>
         </div>
-        <div>
+        <div class="flex2">
           <div class="text1">52W High</div>
           <div class="price1">{{ performance.yearHigh }}</div>
         </div>
@@ -331,7 +331,7 @@ export default {
 
 @media(max-width:576px) {
   .container {
-    width: 365px;
+    width: 384px;
     padding: 10px;
     gap: 0px;
     border-radius: 8px;
@@ -343,6 +343,11 @@ export default {
   }
   .fundamental-box{
     flex-direction: column;
+  }
+  .flex2{
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
   }
 }
 </style>

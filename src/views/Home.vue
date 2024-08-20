@@ -14,7 +14,6 @@ import Performance from '@/components/Performance.vue';
 
 
 <template>
-  <div class="container">
     <Navbar />
   <div class="Flex">
     <div class="coin-view">
@@ -24,22 +23,26 @@ import Performance from '@/components/Performance.vue';
       <Poster />
     </div>
   </div>
-  <SecondNav class="second-nav"/>
-<Performance/>
+  <SecondNav class="second-nav" />
+  <Performance />
   <Sentiments />
   <About />
-  <Tokenomics class="tokenomics"/>
-  <Team class="team"/>
+  <Tokenomics class="tokenomics" />
+  <Team class="team" />
   <div class="footer">
     <Recommendations />
     <TrendingCoins />
   </div>
-  </div>
-  
+  <Poster class="poster2"/>
+
 
 
 </template>
 <style scoped>
+*{
+  padding: 0;
+  margin: 0;
+}
 .Flex {
   display: flex;
   justify-content: space-between;
@@ -61,29 +64,33 @@ import Performance from '@/components/Performance.vue';
 .footer {
   background-color: white;
 }
-@media(max-width:576px){
-  .container{
-    width: 384px;
-  }
-  .poster{
+.poster2{
+  display: none;
+}
+
+@media(max-width:576px) {
+  .poster {
     display: none;
   }
-  .Flex{
+
+  .Flex {
     margin: 0px 10px 0px 10px;
     width: 384px;
   }
-  .tokenomics{
+
+  .tokenomics {
     display: none;
   }
-  .team{
+
+  .second-nav {
     display: none;
   }
-  .second-nav{
+
+  .footer {
     display: none;
   }
-  .footer{
-    display: none;
+  .poster2{
+    display: flex;
   }
 }
-
 </style>
