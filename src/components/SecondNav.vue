@@ -15,6 +15,8 @@ html {
 div a {
     text-decoration: none;
     color: #3E424A;
+    display: flex;
+    align-items: center;
 }
 .container {
     display: flex;
@@ -29,13 +31,15 @@ div a {
 
 .links {
     width: 106px;
-    height: 70px;
+    height: 60px;
     gap: 6px;
+    text-align: center;
 }
 
 @media(max-width: 576px) {
     .container {
         width: 384px;
+        height: auto;
         padding: 10px;
         gap: 24px;
         margin-left: 10px;
