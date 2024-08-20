@@ -28,7 +28,7 @@ import Performance from '@/components/Performance.vue';
   <Sentiments />
   <About />
   <Tokenomics class="tokenomics" />
-  <Team class="team" />
+  <Team/>
   <div class="footer">
     <Recommendations />
     <TrendingCoins />
@@ -83,13 +83,8 @@ import Performance from '@/components/Performance.vue';
   .tokenomics {
     display: none;
   }
-
-  .second-nav {
-    display: none;
-  }
-
   .footer {
-    display: none;
+    overflow-x: auto;
   }
   .poster2{
     display: flex;
