@@ -23,12 +23,12 @@ import Performance from '@/components/Performance.vue';
       <Poster />
     </div>
   </div>
-  <SecondNav />
+  <SecondNav class="second-nav"/>
 <Performance/>
   <Sentiments />
   <About />
   <Tokenomics class="tokenomics"/>
-  <Team />
+  <Team class="team"/>
   <div class="footer">
     <Recommendations />
     <TrendingCoins />
@@ -58,7 +58,7 @@ import Performance from '@/components/Performance.vue';
 .footer {
   background-color: white;
 }
-@media(max-width:768px){
+@media(max-width:576px){
   .poster{
     display: none;
   }
@@ -66,6 +66,15 @@ import Performance from '@/components/Performance.vue';
     margin: 0px 10px 0px 10px;
   }
   .tokenomics{
+    display: none;
+  }
+  .team{
+    display: none;
+  }
+  .second-nav{
+    display: none;
+  }
+  .footer{
     display: none;
   }
 }

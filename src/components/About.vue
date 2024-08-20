@@ -118,7 +118,7 @@
     gap: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
     .container {
         width: 384px;
         padding: 10px;
