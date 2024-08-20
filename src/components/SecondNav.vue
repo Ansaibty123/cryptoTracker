@@ -1,15 +1,21 @@
 <template>
     <div class="container">
-        <div class="link">Overview</div>
-        <div class="link">Fundamentals</div>
-        <div class="link">New Insights</div>
-        <div class="link">Sentiments</div>
-        <div class="link">Team</div>
-        <div class="link">Technicians</div>
-        <div class="link">Tokenomics</div>
-    </div>
+        <a href="#" class="links">Overview</a>
+        <a href="#performance-section" class="links">Fundamentals</a>
+        <a href="#about-section" class="links">About</a>
+        <a href="#sentiments-section" class="links">Sentiments</a> 
+        <a href="#team-section" class="links">Team</a>
+        <a href="#" class="links">Technicians</a>
+        <a href="#tokenomics-section" class="links">Tokenomics</a>    </div>
 </template>
 <style scoped>
+html {
+  scroll-behavior: smooth;
+}
+div a {
+    text-decoration: none;
+    color: #3E424A;
+}
 .container {
     display: flex;
     width: 881px;
@@ -18,7 +24,7 @@
     border: 0px 0px 1px 0px;
     border-bottom: 1px solid #D3E0E6;
     margin-left: 70px;
-    
+
 }
 
 .links {
@@ -26,7 +32,8 @@
     height: 70px;
     gap: 6px;
 }
-@media(max-width: 576px){
+
+@media(max-width: 576px) {
     .container {
         width: 384px;
         padding: 10px;

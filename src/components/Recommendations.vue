@@ -41,7 +41,6 @@ export default {
 
 <style scoped>
 .recommendations {
-  /* border: 1px solid black; */
   margin-top: 20px;
   margin-right: 70px;
   margin-left: 70px;
@@ -63,5 +62,12 @@ export default {
   gap: 10px;
   justify-content: space-between;
 
+}
+@media(max-width:576px){
+  .recommendations{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+  }
 }
 </style>

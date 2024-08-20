@@ -14,8 +14,8 @@ import Performance from '@/components/Performance.vue';
 
 
 <template>
-    <Navbar />
-  <div class="Flex">
+  <Navbar />
+  <div class="Flex" id="coin-view-section">
     <div class="coin-view">
       <BitcoinPrice />
     </div>
@@ -24,20 +24,18 @@ import Performance from '@/components/Performance.vue';
     </div>
   </div>
   <SecondNav class="second-nav" />
-  <Performance />
-  <Sentiments />
-  <About />
-  <Tokenomics class="tokenomics" />
-  <Team/>
-  <div class="footer">
+  <Performance id="performance-section"/>
+  <Sentiments id="sentiments-section"/>
+  <About id="about-section"/>
+  <Tokenomics class="tokenomics" id="tokenomics-section"/>
+  <Team id="team-section"/>
+  <div class="footer" id="footer-section">
     <Recommendations />
     <TrendingCoins />
   </div>
   <Poster class="poster2"/>
-
-
-
 </template>
+
 <style scoped>
 *{
   padding: 0;

@@ -64,5 +64,12 @@ export default {
 
   justify-content: space-between;
 }
+@media(max-width:576px){
+  .Trending{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
 
+  }
+}
 </style>
