@@ -14,7 +14,7 @@ import Performance from '@/components/Performance.vue';
 
 
 <template>
-  <div class="cointainer">
+  <div class="container">
     <Navbar />
   <div class="Flex">
     <div class="coin-view">
