@@ -51,6 +51,7 @@ import Performance from '@/components/Performance.vue';
   margin-bottom: 25px;
   gap: 65px;
   width: 881px;
+  height: auto;
   border-radius: 8px;
   opacity: 0px;
 
@@ -74,8 +75,9 @@ import Performance from '@/components/Performance.vue';
   }
 
   .Flex {
-    margin: 0px 10px 0px 10px;
+    margin: 0px 10px 10px 10px;
     width: 384px;
+    height: auto;
   }
 
   .tokenomics {

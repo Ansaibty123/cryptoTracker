@@ -202,7 +202,6 @@ export default {
     display: flex;
     gap: 20px;
     box-sizing: border-box;
-    margin-bottom: 15px;
 
   }
   .tradingview-widget-container {
