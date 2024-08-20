@@ -329,9 +329,9 @@ export default {
   color: gray;
 }
 
-@media(max-width:576px) {
+@media(max-width:768px) {
   .container {
-    width: 365px;
+    width: 384px;
     padding: 10px;
     gap: 0px;
     border-radius: 8px;

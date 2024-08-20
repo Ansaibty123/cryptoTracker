@@ -96,7 +96,7 @@
   margin-right: 7px;
 }
 
-@media (max-width:576px) {
+@media (max-width:768px) {
   .container {
     width: 411px;
     height: 64px;

@@ -192,7 +192,7 @@ export default {
   padding-top: 10px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .container {
     width: 384px;
     padding: 10px ;

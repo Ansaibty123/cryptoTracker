@@ -58,7 +58,7 @@ import Performance from '@/components/Performance.vue';
 .footer {
   background-color: white;
 }
-@media(max-width:576px){
+@media(max-width:768px){
   .poster{
     display: none;
   }
