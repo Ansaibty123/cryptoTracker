@@ -152,7 +152,7 @@
   .person-box{
     display: flex;
     flex-direction: column;
-    width: 370px;
+    width: 365px;
     box-sizing: border-box;
     height: auto;
     padding: 20px;

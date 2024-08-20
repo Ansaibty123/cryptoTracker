@@ -40,7 +40,6 @@ export default {
 
 <style scoped>
 .Trending {
-  /* border: 1px solid black; */
   margin-top: 20px;
   margin-right: 70px;
   margin-left: 70px;
