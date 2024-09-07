@@ -21,6 +21,7 @@
 
 </template>
 
+
 <style scoped>
 .container {
   width: 1400px;
@@ -37,11 +38,10 @@
 }
 
 .nav-box {
-  width: 909px;
+  /* width: 909px; */
   height: 79px;
   display: flex;
   align-items: center;
-
   justify-content: flex-end;
   padding-right: 10px;
   gap: 15px;
@@ -85,7 +85,6 @@
   padding: 8px;
   gap: 8px;
   border-radius: 8px;
-  opacity: 0px;
   color: white;
   background: linear-gradient(81.62deg, #2870EA 8.72%, #1B4AEF 85.01%);
   font-family: Inter;
@@ -98,8 +97,9 @@
 
 @media (max-width:576px) {
   .container {
-    width: 411px;
+    width: 100%;
     height: 64px;
+    margin: 0 auto;
     padding-left: 10px;
     padding-right: 10px;
     box-sizing: border-box;

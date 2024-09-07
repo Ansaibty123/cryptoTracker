@@ -192,7 +192,7 @@ export default {
   width: 881px;
   padding: 24px 20px;
   gap: 24px;
-  border-radius: 8px 0px 0px 0px;
+  border-radius: 8px;
   opacity: 0px;
   background-color: #FFFFFF;
   margin-left: 70px;

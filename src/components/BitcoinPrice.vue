@@ -16,17 +16,21 @@
         <span class="dollar">$ {{ formattedPriceUSD }}</span>
         <span class="rupees">₹ {{ formattedPriceINR }}</span>
       </div>
+      <div>
+        <span class="percentage-change">{{ percentageChange }}%</span><span class="change-time">(24H)</span>
 
-      <span class="percentage-change">{{ percentageChange }}% (24H)</span>
-
+      </div>
     </div>
+
     <div>
-      <div ref="tradingviewWidget" class="tradingview-widget-container" style="width: 837px; height: 460px;">
+      <div v-if="CoinSymbol" ref="tradingviewWidget" class="tradingview-widget-container"
+        style="width: 837px; height: 460px;">
         <div class="tradingview-widget-container__widget" style="height:460px; width:100%"></div>
         <div class="tradingview-widget-copyright">
           <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"></a>
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -44,6 +48,7 @@ export default {
       priceUSD: null,
       priceINR: null,
       percentageChange: null,
+      widgetLoaded: false, 
     };
   },
   computed: {
@@ -55,53 +60,81 @@ export default {
     },
   },
   methods: {
-    async fetchBitcoinPrice() {
+    async fetchCoinData(coinId = 'bitcoin') {
       try {
-        const response = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin');
+        const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}`);
 
-        // console.log(response)
         this.coinImg = response.data.image.thumb;
         this.coinName = response.data.name;
-        this.CoinSymbol = response.data.symbol;
+        this.CoinSymbol = response.data.symbol.toUpperCase();
         this.rank = response.data.market_cap_rank;
         this.priceUSD = response.data.market_data.current_price.usd;
         this.priceINR = response.data.market_data.current_price.inr;
         this.percentageChange = response.data.market_data.market_cap_change_percentage_24h;
+
+        this.loadTradingViewWidget(this.CoinSymbol);
       } catch (error) {
-        console.error('Error fetching the Bitcoin price:', error);
+        console.error('Error fetching the coin data:', error);
       }
     },
-    loadTradingViewWidget() {
-      const script = document.createElement('script');
-      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
-      script.async = true;
-      script.innerHTML = JSON.stringify({
-        autosize: false,
-        width: 837,
-        height: 460,
-        symbol: 'BTCUSD',
-        interval: 'D',
-        timezone: 'Etc/UTC',
-        theme: 'light',
-        style: '1',
-        locale: 'en',
-        hide_top_toolbar: true,
-        hide_legend: true,
-        allow_symbol_change: false,
-        save_image: false,
-        calendar: false,
-        hide_volume: true,
-        support_host: 'https://www.tradingview.com'
+    
+    loadTradingViewWidget(coinSymbol) {
+      this.$nextTick(() => {
+        if (this.$refs.tradingviewWidget) {
+          this.$refs.tradingviewWidget.innerHTML = ''; 
+
+          const script = document.createElement('script');
+          script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+          script.async = true;
+          script.innerHTML = JSON.stringify({
+            autosize: false,
+            width: 837,
+            height: 460,
+            symbol: `${coinSymbol.toUpperCase()}USD`,
+            interval: 'D',
+            timezone: 'Etc/UTC',
+            theme: 'light',
+            style: '1',
+            locale: 'en',
+            hide_top_toolbar: true,
+            hide_legend: true,
+            allow_symbol_change: false,
+            save_image: false,
+            calendar: false,
+            hide_volume: true,
+            support_host: 'https://www.tradingview.com',
+          });
+
+          this.$refs.tradingviewWidget.appendChild(script);
+          this.widgetLoaded = true; // Mark widget as loaded
+        }
       });
-      this.$refs.tradingviewWidget.appendChild(script);
-    }
+    },
   },
-  mounted() {
-    this.fetchBitcoinPrice();
-    this.loadTradingViewWidget();
-  }
+
+  // Fetch data before the component is fully rendered when route changes
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      const coinId = to.params.coinId || 'bitcoin'; // Use the coinId from the route
+      vm.fetchCoinData(coinId); // Fetch coin data once the component is ready
+    });
+  },
+
+  // Watch the route changes and fetch data accordingly
+  watch: {
+    '$route.params.coinId': {
+      handler(newVal) {
+        const coinId = newVal || 'bitcoin';
+        this.widgetLoaded = false; // Reset the widget loaded flag
+        this.fetchCoinData(coinId); // Fetch new coin data when the route changes
+      },
+      immediate: true, 
+    },
+  },
 };
 </script>
+
+
 
 <style scoped>
 .container {
@@ -169,6 +202,9 @@ export default {
 .price-container {
   display: flex;
   gap: 32px;
+
+
+  align-items: center;
 }
 
 .dollar,
@@ -189,13 +225,31 @@ export default {
   font-size: 16px;
   font-weight: 500;
   color: #14B079;
-  padding-top: 10px;
+  width: 84px;
+  height: 28px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #EBF9F4;
+}
+
+
+
+.change-time {
+  width: 39px;
+  height: 27px;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 27px;
+  text-align: left;
+  color: #768396;
+
 }
 
 @media (max-width: 576px) {
   .container {
     width: 384px;
-    padding: 10px ;
+    padding: 10px;
     border-radius: 8px;
     border: 1px;
     border: 1px solid #DEE1E6;
@@ -204,6 +258,7 @@ export default {
     box-sizing: border-box;
 
   }
+
   .tradingview-widget-container {
     height: auto;
     max-width: 100%;

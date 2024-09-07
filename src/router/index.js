@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
+import BitcoinPrice from '@/components/BitcoinPrice.vue';
+import Performance from '@/components/Performance.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,6 +11,21 @@ const router = createRouter({
       name: 'home',
       component: Home
     },
+    
+      {
+        path: '/coin/:coinId',
+        name : "coin-price",
+        component: BitcoinPrice
+      },
+      
+      // {
+      //   path: '/coin/:coinId',
+      //   name : "coin-performance",
+      //   component: Performance
+      // }
+      
+
+    
     // {
     //   path: '/about',
     //   name: 'about',
