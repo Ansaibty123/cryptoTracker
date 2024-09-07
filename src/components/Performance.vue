@@ -35,7 +35,8 @@
       <div class="fundamental-box">
         <section class="flex">
           <div class="item" v-if="fundamentals.bitcoinPrice">
-            <div class="text1">Bitcoin Price</div>
+            <div class="text1">{{ fundamentals.coinName.charAt(0).toUpperCase() + fundamentals.coinName.slice(1) }}
+              Price</div>
             <div class="value">{{ fundamentals.bitcoinPrice }}</div>
           </div>
           <div class="item" v-if="fundamentals.low24h && fundamentals.high24h">
@@ -103,6 +104,7 @@ export default {
         currentPrice: null,
       },
       fundamentals: {
+        coinName: null,
         bitcoinPrice: null,
         low24h: null,
         high24h: null,
@@ -125,44 +127,60 @@ export default {
   mounted() {
     this.fetchData();
   },
+  watch: {
+    '$route.params.coinId': 'fetchData', // re-fetch data when route changes
+  },
   methods: {
     fetchData() {
-      axios
-        .get("https://api.coingecko.com/api/v3/coins/bitcoin")
-        .then((response) => {
-          const data = response.data;
-          // console.log(data);
+      const coinId = this.$route.params.coinId || "bitcoin";
+      const storedData = localStorage.getItem(`coinData_${coinId}`);
 
-          try {
-            this.performance.todayLow = this.formatPrice(data.market_data.low_24h.usd);
-            this.performance.todayHigh = this.formatPrice(data.market_data.high_24h.usd);
-            this.performance.yearLow = this.formatPrice(data.market_data.low_24h.usd);
-            this.performance.yearHigh = this.formatPrice(data.market_data.high_24h.usd);
-            this.performance.currentPrice = this.formatPrice(data.market_data.current_price.usd);
+      if (storedData) {
+        const data = JSON.parse(storedData);
+        this.processData(data);
+      } else {
 
-            this.fundamentals.bitcoinPrice = this.formatPrice(data.market_data.current_price.usd);
-            this.fundamentals.low24h = this.formatPrice(data.market_data.low_24h.usd);
-            this.fundamentals.high24h = this.formatPrice(data.market_data.high_24h.usd);
-            this.fundamentals.low7d = "N/A";
-            this.fundamentals.high7d = "N/A";
-            this.fundamentals.tradingVolume = this.formatPrice(data.market_data.total_volume.usd);
-            this.fundamentals.marketCapRank = data.market_cap_rank;
-            this.fundamentals.marketCap = this.formatPrice(data.market_data.market_cap.usd);
-            this.fundamentals.marketCapDominance = "N/A";
-            this.fundamentals.volumeMarketCap = (data.market_data.total_volume.usd / data.market_data.market_cap.usd).toFixed(2);
-            this.fundamentals.ath = this.formatPrice(data.market_data.ath.usd);
-            this.fundamentals.athChangePercent = data.market_data.ath_change_percentage.usd.toFixed(2);
-            this.fundamentals.athDate = new Date(data.market_data.ath_date.usd).toLocaleDateString();
-            this.fundamentals.atl = this.formatPrice(data.market_data.atl.usd);
-            this.fundamentals.atlChangePercent = data.market_data.atl_change_percentage.usd.toFixed(2);
-            this.fundamentals.atlDate = new Date(data.market_data.atl_date.usd).toLocaleDateString();
-          } catch (error) {
-            console.error("Error processing API response data:", error);
-          }
-        })
-        .catch((error) => {
-          console.error("There was an error fetching the data!", error);
-        });
+        const url = `https://api.coingecko.com/api/v3/coins/${coinId}`;
+        axios
+          .get(url)
+          .then((response) => {
+            const data = response.data;
+            localStorage.setItem(`coinData_${coinId}`, JSON.stringify(data));
+            this.processData(data);
+          })
+          .catch((error) => {
+            console.error("There was an error fetching the data!", error);
+          });
+      }
+    },
+    processData(data) {
+      try {
+        this.performance.todayLow = this.formatPrice(data.market_data.low_24h.usd);
+        this.performance.todayHigh = this.formatPrice(data.market_data.high_24h.usd);
+        this.performance.yearLow = this.formatPrice(data.market_data.low_24h.usd);
+        this.performance.yearHigh = this.formatPrice(data.market_data.high_24h.usd);
+        this.performance.currentPrice = this.formatPrice(data.market_data.current_price.usd);
+
+        this.fundamentals.coinName = data.id;
+        this.fundamentals.bitcoinPrice = this.formatPrice(data.market_data.current_price.usd);
+        this.fundamentals.low24h = this.formatPrice(data.market_data.low_24h.usd);
+        this.fundamentals.high24h = this.formatPrice(data.market_data.high_24h.usd);
+        this.fundamentals.low7d = "N/A";
+        this.fundamentals.high7d = "N/A";
+        this.fundamentals.tradingVolume = this.formatPrice(data.market_data.total_volume.usd);
+        this.fundamentals.marketCapRank = data.market_cap_rank;
+        this.fundamentals.marketCap = this.formatPrice(data.market_data.market_cap.usd);
+        this.fundamentals.marketCapDominance = "N/A";
+        this.fundamentals.volumeMarketCap = (data.market_data.total_volume.usd / data.market_data.market_cap.usd).toFixed(2);
+        this.fundamentals.ath = this.formatPrice(data.market_data.ath.usd);
+        this.fundamentals.athChangePercent = data.market_data.ath_change_percentage.usd.toFixed(2);
+        this.fundamentals.athDate = new Date(data.market_data.ath_date.usd).toLocaleDateString();
+        this.fundamentals.atl = this.formatPrice(data.market_data.atl.usd);
+        this.fundamentals.atlChangePercent = data.market_data.atl_change_percentage.usd.toFixed(2);
+        this.fundamentals.atlDate = new Date(data.market_data.atl_date.usd).toLocaleDateString();
+      } catch (error) {
+        console.error("Error processing API response data:", error);
+      }
     },
     formatPrice(value) {
       if (value == null) return "N/A";
@@ -186,6 +204,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 .container {
@@ -341,10 +360,12 @@ export default {
     margin-right: 10px;
 
   }
-  .fundamental-box{
+
+  .fundamental-box {
     flex-direction: column;
   }
-  .flex2{
+
+  .flex2 {
     display: flex;
     flex-direction: column;
     gap: 17px;

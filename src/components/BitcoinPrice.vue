@@ -17,8 +17,7 @@
         <span class="rupees">₹ {{ formattedPriceINR }}</span>
       </div>
       <div>
-        <span class="percentage-change">{{ percentageChange }}%</span><span class="change-time">(24H)</span>
-
+        <span class="percentage-change">{{ formattedPercentageChange }}%</span><span class="change-time">(24H)</span>
       </div>
     </div>
 
@@ -48,7 +47,7 @@ export default {
       priceUSD: null,
       priceINR: null,
       percentageChange: null,
-      widgetLoaded: false, 
+      widgetLoaded: false,
     };
   },
   computed: {
@@ -58,11 +57,32 @@ export default {
     formattedPriceINR() {
       return new Intl.NumberFormat('en-IN').format(this.priceINR);
     },
+    formattedPercentageChange() {
+      return  this.percentageChange.toFixed(2);
+    },
   },
   methods: {
     async fetchCoinData(coinId = 'bitcoin') {
       try {
+        const cacheData = localStorage.getItem(`coinData_${coinId}`);
+        if (cacheData) {
+          const data = JSON.parse(cacheData);
+          this.coinImg = data.image.thumb;
+          this.coinName = data.name;
+          this.CoinSymbol = data.symbol.toUpperCase();
+          this.rank = data.market_cap_rank;
+          this.priceUSD = data.market_data.current_price.usd;
+          this.priceINR = data.market_data.current_price.inr;
+          this.percentageChange = data.market_data.market_cap_change_percentage_24h;
+          this.loadTradingViewWidget(this.CoinSymbol);
+          return;
+        }
+
+
         const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}`);
+        console.log(response.data.id);
+        localStorage.setItem(`coinData_${coinId}`, JSON.stringify(response.data));
+
 
         this.coinImg = response.data.image.thumb;
         this.coinName = response.data.name;
@@ -77,11 +97,11 @@ export default {
         console.error('Error fetching the coin data:', error);
       }
     },
-    
+
     loadTradingViewWidget(coinSymbol) {
       this.$nextTick(() => {
         if (this.$refs.tradingviewWidget) {
-          this.$refs.tradingviewWidget.innerHTML = ''; 
+          this.$refs.tradingviewWidget.innerHTML = '';
 
           const script = document.createElement('script');
           script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
@@ -116,11 +136,12 @@ export default {
   beforeRouteEnter(to, from, next) {
     next((vm) => {
       const coinId = to.params.coinId || 'bitcoin'; // Use the coinId from the route
+      console.log('Fetching data for:', coinId);
       vm.fetchCoinData(coinId); // Fetch coin data once the component is ready
     });
   },
 
-  // Watch the route changes and fetch data accordingly
+
   watch: {
     '$route.params.coinId': {
       handler(newVal) {
@@ -230,6 +251,7 @@ export default {
   padding: 8px;
   border-radius: 4px;
   background-color: #EBF9F4;
+  margin-right: 5px;
 }
 
 

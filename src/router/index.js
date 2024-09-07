@@ -18,11 +18,11 @@ const router = createRouter({
         component: BitcoinPrice
       },
       
-      // {
-      //   path: '/coin/:coinId',
-      //   name : "coin-performance",
-      //   component: Performance
-      // }
+      {
+        path: '/coin/:coinId',
+        name : "coin-performance",
+        component: Performance
+      }
       
 
     
