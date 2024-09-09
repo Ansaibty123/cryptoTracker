@@ -270,9 +270,6 @@ export default {
     box-sizing: border-box;
 
   }
-  /* .coin-container{
-    background-color: #f4f4f4;
-  } */
 
   .tradingview-widget-container {
     height: auto;
