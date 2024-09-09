@@ -59,11 +59,17 @@ export default {
   justify-content: space-between;
   overflow-x: auto;
   padding-bottom: 30px;
+  gap: 10px;
 
 }
 .coin-card {
   height: 160px;
   width: 252px;
+}
+@media(max-width:768px){
+  .coin-list{
+    gap: 6px;
+  }
 }
 
 </style>
