@@ -2,7 +2,7 @@
   <div class="Trending">
     <div class="title">Trending</div>
     <div class="coin-list">
-      <CoinCard v-for="coin in TrendingCoins" :key="coin.item.id" :coin="coin" />
+      <CoinCard v-for="coin in TrendingCoins" :key="coin.item.id" :coin="coin" class="coin-card" />
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@ import axios from 'axios';
 import CoinCard from './CoinCard.vue';
 export default {
   name: 'Trending',
-  components: {CoinCard},
+  components: { CoinCard },
   data() {
     return {
       TrendingCoins: [],
@@ -39,18 +39,13 @@ export default {
 </script>
 
 <style scoped>
-.Trending {
-  margin-top: 20px;
-  margin-right: 70px;
-  margin-left: 70px;
-  width: 1380px;
-  height: 246px;
-  box-sizing: border-box;
+.Trending{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
 .title {
-  width: 210px;
-  height: 36px;
+
   font-family: Inter;
   font-weight: 600;
   font-size: 24px;
@@ -58,18 +53,19 @@ export default {
   color: #202020;
 
 }
+
 .coin-list {
   display: flex;
-  gap: 10px;
-
   justify-content: space-between;
+  overflow-x: auto;
+  padding-bottom: 30px;
+
 }
-@media(max-width:576px){
-  .Trending{
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-left: 10px;
-    
-  }
+
+.coin-card {
+  height: 160px;
+  width: 252px;
 }
+
+
 </style>

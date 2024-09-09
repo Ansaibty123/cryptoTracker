@@ -15,78 +15,71 @@ import Performance from '@/components/Performance.vue';
 
 <template>
   <Navbar />
-  <div class="Flex">
-    <div class="coin-view">
+
+
+  <div id="main-section">
+    <div id="main-left">
       <BitcoinPrice />
+      <SecondNav class="second-nav" />
+      <Performance id="performance-section" />
+      <Sentiments id="sentiments-section" />
+      <About id="about-section" />
+      <Tokenomics class="tokenomics" id="tokenomics-section" />
+      <Team id="team-section" />
+      
+
     </div>
-    <div class="poster">
+
+    <div id="main-right">
       <Poster />
     </div>
   </div>
-  <SecondNav class="second-nav" />
-  <Performance id="performance-section"/>
-  <Sentiments id="sentiments-section"/>
-  <About id="about-section"/>
-  <Tokenomics class="tokenomics" id="tokenomics-section"/>
-  <Team id="team-section"/>
   <div class="footer" id="footer-section">
-    <Recommendations />
-    <TrendingCoins />
-  </div>
-  <Poster class="poster2"/>
+        <Recommendations />
+        <TrendingCoins />
+      </div>
+
 </template>
 
 <style scoped>
-*{
+body {
   padding: 0;
   margin: 0;
-}
-.Flex {
-  display: flex;
-  justify-content: space-between;
-  margin-right: 70px;
-  margin-left: 70px;
-  margin-bottom: 25px;
-  gap: 65px;
-  width: 881px;
-  height: auto;
-  border-radius: 8px;
-  opacity: 0px;
-
-}
-
-.coin-view {
-  background-color: white;
-
 }
 
 .footer {
   background-color: white;
-  margin-bottom: 15px;
-}
-.poster2{
-  display: none;
+  padding: 69px;
 }
 
-@media(max-width:576px) {
-  .poster {
-    display: none;
-  }
 
-  .Flex {
-    margin: 0px 10px 10px 10px;
-    width: 384px;
-    height: auto;
-  }
+#main-section {
+  padding: 56px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
 
-  .tokenomics {
-    display: none;
+#main-left {
+  flex: 8;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#main-right {
+  flex: 4;
+}
+
+@media(max-width:992px) {
+  #main-section {
+    padding: 14px;
+    flex-direction: column;
   }
   .footer {
     overflow-x: auto;
-  }
-  .poster2{
-    display: flex;
-  }
+   padding: 14px;
+   margin-bottom: 30px;
+  } 
 }
 </style>

@@ -1,13 +1,11 @@
 <template>
-    <div class="container">
+    <div class="card">
         <div class="heading">Tokenomics</div>
-        <div>
             <div class="heading2">Initial Distribution</div>
-            <div>
+            <div class="image-box">
                 <img src="@/assets/statscircle.png" alt="">
             </div>
 
-        </div>
         <div class="text">Lorem ipsum dolor sit amet consectetur. Cras aliquet tristique ornare vestibulum nunc
             dignissim vel
             consequat.
@@ -22,53 +20,28 @@
 
 </template>
 <style scoped>
-.container {
-    width: 881px;
-    padding: 24px 20px;
-    gap: 24px;
-    border-radius: 8px 0px 0px 0px;
-    opacity: 0px;
-    background-color: #FFFFFF;
-    margin-left: 70px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-}
 
 .heading {
-    width: 140px;
-    height: 29px;
-    top: -1px;
-    gap: 0px;
-    opacity: 0px;
+    
     font-family: Inter;
     font-size: 24px;
     font-weight: 600;
     line-height: 28.8px;
     text-align: left;
     color: #0F1629;
-    padding-bottom: 15px;
 }
 
 .heading2 {
-    width: 171px;
-    height: 36px;
-    gap: 0px;
-    opacity: 0px;
+    
     font-family: Inter;
     font-size: 20px;
     font-weight: 600;
     line-height: 36px;
     text-align: left;
     color: #1D1D1D;
-    padding-bottom: 5px;
 }
 
 .text {
-    
-    height: 156px;
-    gap: 0px;
-    opacity: 0px;
-    padding-top: 5px;
     font-family: Inter;
     font-size: 16px;
     font-weight: 500;
@@ -76,5 +49,14 @@
     text-align: left;
     color: #3E424A;
     
+}
+
+@media (max-width:992px){
+    .image-box{
+        width: 100%;
+    }
+    img{
+        max-width: 100%;
+    }
 }
 </style>
