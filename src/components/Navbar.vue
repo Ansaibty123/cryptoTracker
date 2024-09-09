@@ -23,13 +23,10 @@
 
 <style scoped>
 .navbar {
-  /* width: 100%; */
   height: 80px;
-  left: -0.15px;
   padding: 0.5px 56px 0.5px 60px;
   gap: 829.23px;
   border: 0px 0px 1px 0px;
-  opacity: 0px;
   background-color: #FFFFFF;
   box-shadow: 0px 0px 12px 0px #1026490F;
   margin-bottom: 15px;
@@ -37,12 +34,10 @@
 }
 
 .nav-box {
-  /* width: 909px; */
   height: 79px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 10px;
   gap: 15px;
 }
 
@@ -78,10 +73,7 @@
 }
 
 .get-started {
-  width: 136px;
-  height: 40px;
   padding: 8px;
-  gap: 8px;
   border-radius: 8px;
   color: white;
   background: linear-gradient(81.62deg, #2870EA 8.72%, #1B4AEF 85.01%);
@@ -90,14 +82,12 @@
   font-weight: 600;
   line-height: 19.36px;
   letter-spacing: -0.01em;
-  margin-right: 7px;
 }
 
-@media (max-width:576px) {
+@media (max-width:768px) {
   .navbar {
     width: 100%;
     height: 64px;
-    margin: 0 auto;
     padding-left: 10px;
     padding-right: 10px;
     box-sizing: border-box;
