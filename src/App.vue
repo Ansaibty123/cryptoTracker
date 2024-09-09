@@ -5,11 +5,11 @@ import Home from '../src/views/Home.vue'
 </script>
 
 <template>
-  <div>
     <Home />
-  </div>
 </template>
 <style>
-
+body {
+  line-height: 22.4px;
+}
 </style>
 

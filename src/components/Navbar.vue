@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <nav class="navbar">
     <div class="header-bar">
       <img src="@/assets/logo.png" alt="KoinX" class="logo" />
       <div class="nav-box">
@@ -7,7 +7,6 @@
           <a href="#">Crypto Taxes</a>
           <a href="#">Free Tools</a>
           <a href="#">Resource Center</a>
-
 
         </nav>
 
@@ -17,14 +16,14 @@
 
     </div>
 
-  </div>
+  </nav>
 
 </template>
 
 
 <style scoped>
-.container {
-  width: 1400px;
+.navbar {
+  /* width: 100%; */
   height: 80px;
   left: -0.15px;
   padding: 0.5px 56px 0.5px 60px;
@@ -48,7 +47,6 @@
 }
 
 .logo {
-  width: 96px;
   height: 72px;
   opacity: 0px;
   margin-left: 10px;
@@ -96,7 +94,7 @@
 }
 
 @media (max-width:576px) {
-  .container {
+  .navbar {
     width: 100%;
     height: 64px;
     margin: 0 auto;

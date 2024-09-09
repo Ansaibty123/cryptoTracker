@@ -2,7 +2,7 @@
   <div class="recommendations">
     <div class="title">You may also like</div>
     <div class="coin-list">
-      <CoinCard v-for="coin in recommendCoins" :key="coin.item.id" :coin="coin" />
+      <CoinCard v-for="coin in recommendCoins" :key="coin.item.id" :coin="coin" class="coin-card"/>
     </div>
   </div>
 </template>
@@ -40,17 +40,14 @@ export default {
 </script>
 
 <style scoped>
-.recommendations {
-  margin-top: 20px;
-  margin-right: 70px;
-  margin-left: 70px;
-  width: 1380px;
-  height: 246px;
+.recommendations{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .title {
-  width: 210px;
-  height: 36px;
+ 
   font-family: Inter, sans-serif;
   font-weight: 600;
   font-size: 24px;
@@ -59,15 +56,14 @@ export default {
 }
 .coin-list {
   display: flex;
-  gap: 10px;
   justify-content: space-between;
+  overflow-x: auto;
+  padding-bottom: 30px;
 
 }
-@media(max-width:576px){
-  .recommendations{
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-left: 10px;
-  }
+.coin-card {
+  height: 160px;
+  width: 252px;
 }
+
 </style>

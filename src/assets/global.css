@@ -7,3 +7,26 @@ body {
   background-color: #f4f4f4;
   color: #202020;
 }
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 24px 20px;
+  gap: 24px;
+  background-color: white;
+  letter-spacing: 0.9px;
+  line-height: 22.4px;
+
+
+}
+
+
+
+@media (max-width: 992px) {
+  .card {
+    padding: 16px 10px;
+
+  }
+}

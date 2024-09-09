@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-    <div class="performance">
+  <div class="card">
       <div class="title">Performance</div>
       <div class="range" v-if="performance.todayLow && performance.todayHigh && performance.currentPrice">
         <div class="flex2">
@@ -28,9 +27,8 @@
           <div class="price1">{{ performance.yearHigh }}</div>
         </div>
       </div>
-    </div>
 
-    <div class="fundamentals">
+    
       <div class="title2">Fundamentals</div>
       <div class="fundamental-box">
         <section class="flex">
@@ -85,7 +83,6 @@
         </section>
       </div>
 
-    </div>
   </div>
 </template>
 
@@ -207,17 +204,7 @@ export default {
 
 
 <style scoped>
-.container {
-  width: 881px;
-  padding: 24px 20px;
-  gap: 24px;
-  border-radius: 8px;
-  opacity: 0px;
-  background-color: #FFFFFF;
-  margin-left: 70px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-}
+
 
 .flex {
   display: flex;
@@ -225,16 +212,9 @@ export default {
   gap: 15px;
 }
 
-.performance {
-  margin-bottom: 25px;
-}
+
 
 .title {
-  width: 151px;
-  height: 29px;
-  top: -1px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Inter;
   font-size: 24px;
   font-weight: 600;
@@ -245,10 +225,6 @@ export default {
 }
 
 .text1 {
-  /* width: 90px; */
-  height: 20px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Inter;
   font-size: 13.78px;
   font-weight: 400;
@@ -258,10 +234,6 @@ export default {
 }
 
 .price1 {
-  width: 78px;
-  height: 22px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Inter;
   font-size: 15.63px;
   font-weight: 500;
@@ -275,15 +247,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
 }
 
 .bar {
   width: 582.8px;
   height: 4.63px;
-  gap: 0px;
   border-radius: 10px;
-  opacity: 0px;
   background: linear-gradient(90deg, #FF4949 0%, #FF4E11 15.34%, #FC870A 30.45%, #FFAF11 48.68%, #C2CB21 62.75%, #11EB68 100.03%);
 
 
@@ -296,17 +265,13 @@ export default {
 }
 
 .title2 {
-  width: 130px;
-  height: 20px;
-  gap: 0px;
-  opacity: 0px;
+  
   font-family: Inter;
   font-size: 18.91px;
   font-weight: 600;
   line-height: 20px;
   text-align: left;
   color: #44475B;
-  margin-bottom: 15px;
 }
 
 .fundamental-box {
@@ -315,7 +280,6 @@ export default {
 }
 
 .value {
-
   font-family: Inter;
   font-size: 13px;
   font-weight: 500;
@@ -327,7 +291,6 @@ export default {
 .item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
   gap: 20px;
 }
 
@@ -347,20 +310,13 @@ export default {
   font-size: 0.8rem;
   color: gray;
 }
-
-@media(max-width:576px) {
-  .container {
-    width: 384px;
-    padding: 10px;
-    gap: 0px;
-    border-radius: 8px;
-    border: 1px;
-    box-sizing: border-box;
-    margin-left: 10px;
-    margin-right: 10px;
-
+.flex2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
+@media(max-width:992px) {
   .fundamental-box {
     flex-direction: column;
   }
@@ -368,7 +324,7 @@ export default {
   .flex2 {
     display: flex;
     flex-direction: column;
-    gap: 17px;
+    gap: 8px;
   }
 }
 </style>

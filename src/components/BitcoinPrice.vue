@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="card">
     <div class="coin-container">
       <span>
         <img :src="coinImg" alt="coin logo" class="coin-logo">
@@ -23,7 +23,7 @@
 
     <div>
       <div v-if="CoinSymbol" ref="tradingviewWidget" class="tradingview-widget-container"
-        style="width: 837px; height: 460px;">
+        style="max-width: 837px; height: 460px;">
         <div class="tradingview-widget-container__widget" style="height:460px; width:100%"></div>
         <div class="tradingview-widget-copyright">
           <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"></a>
@@ -108,7 +108,7 @@ export default {
           script.async = true;
           script.innerHTML = JSON.stringify({
             autosize: false,
-            width: 837,
+            width: "100%",
             height: 460,
             symbol: `${coinSymbol.toUpperCase()}USD`,
             interval: 'D',
@@ -132,10 +132,9 @@ export default {
     },
   },
 
-  // Fetch data before the component is fully rendered when route changes
   beforeRouteEnter(to, from, next) {
     next((vm) => {
-      const coinId = to.params.coinId || 'bitcoin'; // Use the coinId from the route
+      const coinId = to.params.coinId || 'bitcoin'; 
       console.log('Fetching data for:', coinId);
       vm.fetchCoinData(coinId); // Fetch coin data once the component is ready
     });
@@ -158,14 +157,7 @@ export default {
 
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 24px 20px;
-  width: 881px;
-  gap: 20px;
-}
+
 
 .coin-container {
   display: flex;
@@ -174,7 +166,6 @@ export default {
 }
 
 .coin-logo {
-  width: 36px;
   height: 36px;
 }
 
@@ -196,11 +187,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 40px;
   border-radius: 8px;
   border: 1px solid #808A9D;
   background: #768396;
+  padding: 8px
 }
 
 .rank-sub {
@@ -213,10 +203,10 @@ export default {
 .price-box {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 .tradingview-widget-container {
-  width: 837px;
   height: 515px;
 }
 
@@ -268,7 +258,7 @@ export default {
 
 }
 
-@media (max-width: 576px) {
+@media (max-width: 992px) {
   .container {
     width: 384px;
     padding: 10px;
@@ -280,6 +270,9 @@ export default {
     box-sizing: border-box;
 
   }
+  /* .coin-container{
+    background-color: #f4f4f4;
+  } */
 
   .tradingview-widget-container {
     height: auto;

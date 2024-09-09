@@ -43,20 +43,17 @@ export default {
 }
 
 .coin-logo {
-  width: 26px;
   height: 26px;
   border-radius: 13px;
 }
 
 .coin-box {
-  width: 218px;
   height: 38px;
   /* border: 1px solid red; */
   box-sizing: border-box;
 }
 .price {
   box-sizing: border-box;
-  width: 112px;
   height: 24px;
   gap: 0px;
   opacity: 0px;
@@ -70,7 +67,6 @@ export default {
   color: #171717;
 }
 .items {
-  width: 252px;
   height: 160px;
   border-radius: 10px;
   border: 1px solid #E3E3E3;
@@ -79,7 +75,6 @@ export default {
 }
 
 .graph-container {
-  width: 218px;
   height: 65px;
   box-sizing: border-box;
   /* border: 1px solid black; */

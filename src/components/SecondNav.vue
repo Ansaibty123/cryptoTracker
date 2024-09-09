@@ -20,31 +20,25 @@ div a {
 }
 .container {
     display: flex;
-    width: 881px;
     height: 48px;
-    gap: 38px;
+    gap: 32px;
     border: 0px 0px 1px 0px;
     border-bottom: 1px solid #D3E0E6;
-    margin-left: 70px;
 
 }
 
 .links {
-    width: 106px;
     height: 70px;
     gap: 6px;
     text-align: center;
 }
 
-@media(max-width: 576px) {
+@media(max-width: 992px) {
     .container {
-        width: 384px;
         height: auto;
         padding: 10px;
         gap: 24px;
-        margin-left: 10px;
         border-radius: 8px;
-        margin-right: 10px;
         overflow-x: auto;
         white-space: nowrap;
     }

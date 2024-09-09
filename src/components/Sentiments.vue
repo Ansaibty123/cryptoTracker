@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="card">
         <div class="text1">
             Sentiments
         </div>
@@ -61,16 +61,16 @@
                 <img src="@/assets/info.png" alt="info-logo">
             </div>
             <div class="analyst-box">
-                
-                    <img src="@/assets/percentage.png" alt="" class="percentage">
-                
+
+                <img src="@/assets/percentage.png" alt="" class="percentage">
+
                 <div class="bar-box">
                     <img src="@/assets/bar.png" alt="" class="image2">
                 </div>
                 <div class="bar-box2">
                     <img src="@/assets/bar2.png" alt="" class="image2">
                 </div>
-               
+
             </div>
         </section>
 
@@ -85,34 +85,21 @@
     gap: 5px;
 }
 
-.container {
-    width: 881px;
-    padding: 24px 20px;
-    gap: 24px;
-    border-radius: 8px 0px 0px 0px;
-    opacity: 0px;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    margin-left: 70px;
-    margin-bottom: 15px;
-    background-color: #FFFFFF;
-
-}
-
 .container2 {
-    width: 926px;
-    height: 204px;
-    gap: 10px;
-    opacity: 0px;
     display: flex;
+    flex-direction: row;
+    gap: 14px;
+    overflow-x: auto;
 
 }
 
 .box {
     display: flex;
-    padding-top: 10px;
+    padding: 10px;
     border-radius: 10px;
+    min-width: 456px;
+    box-sizing: border-box;
+
 
 }
 
@@ -120,29 +107,17 @@
     width: 40px;
     height: 44px;
     padding: 8.41px 8px 7.59px 8px;
-    gap: 0px;
     border-radius: 50px;
-    opacity: 0px;
     text-align: center;
 }
 
 .image {
     width: 28px;
     height: 28px;
-    top: 8.41px;
-    left: 8px;
-    padding: 4.2px 2.69px 5.6px 2.69px;
-    gap: 0px;
-    opacity: 0px;
 
 }
 
 .text1 {
-    width: 120px;
-    height: 29px;
-    top: -1px;
-    gap: 0px;
-    opacity: 0px;
     font-family: Inter;
     font-size: 24px;
     font-weight: 600;
@@ -152,11 +127,6 @@
 }
 
 .text2 {
-    width: 101px;
-    height: 20px;
-    padding: 0px 0px 0px 0px;
-    gap: 0.04px;
-    opacity: 0px;
     font-family: Inter;
     font-size: 18.91px;
     font-weight: 600;
@@ -166,8 +136,6 @@
 }
 
 .text3 {
-    width: 347px;
-    height: auto;
     font-family: SF Pro Text;
     font-size: 14px;
     font-weight: 500;
@@ -178,10 +146,6 @@
 }
 
 .text4 {
-    width: 365px;
-    height: 100px;
-    gap: 0px;
-    opacity: 0px;
     font-family: SF Pro Text;
     font-size: 14px;
     font-weight: 400;
@@ -191,10 +155,6 @@
 }
 
 .text5 {
-    width: 165px;
-    height: 20px;
-    gap: 0px;
-    opacity: 0px;
     font-family: Inter;
     font-size: 18.91px;
     font-weight: 600;
@@ -204,96 +164,43 @@
 }
 
 .box2 {
-    width: 355px;
-    top: -0.5px;
-    left: 52px;
+    display: flex;
+    flex-direction: column;
     gap: 8px;
-    opacity: 0px;
 
 }
 
 .news {
     background-color: #E8F4FD;
+    width: 456px;
+    
 }
 
 .trending {
     background-color: #EBF9F4;
+    width: 456px;
+
 
 }
-
+.analyst{
+    display: flex;
+    flex-direction: column;
+    gap: 24px ;
+}
 .analyst-box {
     display: flex;
 }
 
-.bar-box {
-    width: 553.14px;
-    height: 114px;
-    gap: 0px;
-    opacity: 0px;
-
-}
 
 
-.percentage {
-    width: 156.86px;
-    height: 120px;
-    padding: 10px 40px 0px 0px;
-    opacity: 0px;
 
-}
-.bar-box {
-    width: 553.14px;
-    height: 114px;
-}
+
 
 .bar-box2 {
     display: none;
 }
 
-@media(max-width:576px) {
-    .container {
-        width: 384px;
-        padding: 10px;
-        border-radius: 8px;
-        box-sizing: border-box;
-        margin-left: 10px;
-        margin-right: 10px;
-        gap: 20px;
-    }
-
-    .container2 {
-        /* flex-direction: column; */
-        width: 100%;
-        height: auto;
-        gap: 10px;
-    }
-
-    .box {
-        width: 100%;
-        padding-bottom: 10px;
-    }
-
-    .trending {
-        display: none;
-    }
-    .text3{
-        width: 100%;
-        height: auto;
-    }
-    .text4 {
-        width: 300px;
-    }
-
-    .analyst-box {
-        padding: 5px;
-        box-sizing: border-box;
-    }
-
-    .percentage {
-        width: 100px;
-        height: 100px;
-        padding: 0;
-    }
+@media(max-width:992px) {
 
     .bar-box {
         display: none;
@@ -301,12 +208,11 @@
 
     .bar-box2 {
         display: flex;
-    }
-
-    .image2 {
         width: 100%;
-        height: 120px;
     }
-}
+    .bar-box2 img {
+        max-width: 100%;
+    }
 
+}
 </style>

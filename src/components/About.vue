@@ -1,5 +1,5 @@
 <template>
-    <section class="container">
+    <section class="card">
         <div class="heading">
             About Bitcoin
         </div>
@@ -20,28 +20,42 @@
                 <div class="text text2">
                     <span>
                         Lorem ipsum dolor sit amet consectetur. Aliquam placerat sit lobortis tristique
-                        pharetra. Diam id et lectus urna et tellus aliquam dictum at. Viverra diam suspendisse enim facilisi diam ut sed. Quam scelerisque fermentum sapien morbi sodales odio sed rhoncus. Ultricies urna volutpat pendisse enim facilisi diam ut sed. Quam scelerisque fermentum sapien morbi sodales odio sed rhoncus.
+                        pharetra. Diam id et lectus urna et tellus aliquam dictum at. Viverra diam suspendisse enim
+                        facilisi diam ut sed. Quam scelerisque fermentum sapien morbi sodales odio sed rhoncus.
+                        Ultricies urna volutpat pendisse enim facilisi diam ut sed. Quam scelerisque fermentum sapien
+                        morbi sodales odio sed rhoncus.
                     </span>
                     <span>
-                        Diam praesent massa dapibus magna aliquam a dictumst volutpat. Egestas vitae pellentesque auctor amet. Nunc sagittis libero adipiscing cursus felis pellentesque interdum. Odio cursus phasellus velit in senectus enim dui. Turpis tristique placerat interdum sed volutpat. Id imperdiet magna eget eros donec cursus nunc. Mauris faucibus diam mi nunc praesent massa turpis a. Integer dignissim augue viverra nulla et quis lobortis phasellus. Integer pellentesque enim convallis ultricies at.
+                        Diam praesent massa dapibus magna aliquam a dictumst volutpat. Egestas vitae pellentesque auctor
+                        amet. Nunc sagittis libero adipiscing cursus felis pellentesque interdum. Odio cursus phasellus
+                        velit in senectus enim dui. Turpis tristique placerat interdum sed volutpat. Id imperdiet magna
+                        eget eros donec cursus nunc. Mauris faucibus diam mi nunc praesent massa turpis a. Integer
+                        dignissim augue viverra nulla et quis lobortis phasellus. Integer pellentesque enim convallis
+                        ultricies at.
                     </span>
                     <span>
-                        Fermentum hendrerit imperdiet nulla viverra faucibus. Sit aliquam massa vel convallis duis ac. Mi adipiscing semper scelerisque porttitor pulvinar nunc risus. Fermentum potenti iaculis lacinia congue ipsum fames amet dui. Purus ultrices tincidunt volutpat in eget. Ullamcorper dui.
+                        Fermentum hendrerit imperdiet nulla viverra faucibus. Sit aliquam massa vel convallis duis ac.
+                        Mi adipiscing semper scelerisque porttitor pulvinar nunc risus. Fermentum potenti iaculis
+                        lacinia congue ipsum fames amet dui. Purus ultrices tincidunt volutpat in eget. Ullamcorper dui.
                     </span>
                 </div>
             </div>
-            <div>
+            <div class="card-image">
                 <div class="heading">Already Holding Bitcoin?</div>
-                <div class="image-box">
-                    <img src="@/assets/mobilepic.png" alt="">
+                <div>
+                    <div class="image-box">
+                        <img src="@/assets/mobilepic.png" alt="">
+                    </div>
+                    <div class="image-box2">
+                        <img src="@/assets/mobilepic2.png" alt="">
+                    </div>
                 </div>
-                <div class="image-box2">
-                    <img src="@/assets/mobilepic2.png" alt="">
-                </div>
+
             </div>
             <div class="text text3">
                 Fermentum hendrerit imperdiet nulla viverra faucibus. Sit aliquam massa vel convallis duis ac. Mi
-                adipiscing semper scelerisque porttitor pulvinar nunc risus. Fermentum potenti iaculis lacinia congue ipsum fames amet dui.
+                adipiscing semper scelerisque porttitor pulvinar nunc risus. Fermentum potenti iaculis lacinia congue
+                ipsum fames amet dui.
                 Purus ultrices tincidunt volutpat in eget. Ullamcorper dui.
             </div>
         </div>
@@ -49,19 +63,6 @@
 </template>
 
 <style scoped>
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 881px;
-    padding: 24px 20px;
-    gap: 24px;
-    border-radius: 8px 0px 0px 0px;
-    background-color: #FFFFFF;
-    margin-left: 70px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-}
-
 .main-box {
     display: flex;
     flex-direction: column;
@@ -77,13 +78,13 @@
     color: #0F1629;
 }
 
-.image-box {
-    width: 807px;
-    height: 151px;
-    margin-top: 10px;
-    margin-bottom: 15px;
+.card-image {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
-.image-box2{
+
+.image-box2 {
     display: none;
 }
 
@@ -106,11 +107,7 @@
     color: #3E424A;
 }
 
-.text1,
-.text2,
-.text3 {
-    width: 100%;
-}
+
 
 .text2 {
     display: flex;
@@ -118,29 +115,20 @@
     gap: 10px;
 }
 
-@media (max-width: 576px) {
-    .container {
-        width: 384px;
-        padding: 10px;
-        gap: 24px;
-        margin-left: 10px;
-        border-radius: 8px;
-        margin-right: 10px;
-
-    }
-
+@media (max-width: 992px) {
 
     .image-box {
-       display: none;
-    }
-    .image-box2{
-      display: flex;
+        display: none;
     }
 
-    .text1,
-    .text2,
-    .text3 {
+    .image-box2 {
+        display: flex;
         width: 100%;
     }
+    img{
+        max-width: 100%;
+    }
+
+
 }
 </style>
