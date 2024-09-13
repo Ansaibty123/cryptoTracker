@@ -26,7 +26,9 @@ import Performance from '@/components/Performance.vue';
       <About id="about-section" />
       <Tokenomics class="tokenomics" id="tokenomics-section" />
       <Team id="team-section" />
-      
+      <!-- <div class="card">
+        <Recommendations />
+      </div> -->
 
     </div>
 
@@ -35,9 +37,9 @@ import Performance from '@/components/Performance.vue';
     </div>
   </div>
   <div class="footer" id="footer-section">
-        <Recommendations />
-        <TrendingCoins />
-      </div>
+    <Recommendations />
+    <TrendingCoins />
+  </div>
 
 </template>
 
@@ -54,7 +56,7 @@ body {
 
 
 #main-section {
-  padding: 56px;
+  padding: 17px 56px 56px 56px;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -69,6 +71,7 @@ body {
 
 #main-right {
   flex: 4;
+  padding-top: 36px;
 }
 
 @media(max-width:992px) {
@@ -76,10 +79,15 @@ body {
     padding: 14px;
     flex-direction: column;
   }
+
+  #main-right {
+    padding-top: 0;
+  }
+
   .footer {
     overflow-x: auto;
-   padding: 14px;
-   margin-bottom: 30px;
-  } 
+    padding: 14px;
+    margin-bottom: 30px;
+  }
 }
 </style>

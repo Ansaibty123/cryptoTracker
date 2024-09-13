@@ -3,6 +3,7 @@
         <div class="heading">
             About Bitcoin
         </div>
+
         <div class="main-box">
             <div class="content">
                 <div class="question">What is Bitcoin?</div>

@@ -1,5 +1,9 @@
 <template>
-  <div class="card">
+  <div>
+    <div class="navigation-box">
+     <span class="navigation">Cryptocurrencies >> </span> <span class="navigation-coin-name">{{ coinName }}</span>
+    </div>
+    <div class="card">
     <div class="coin-container">
       <span>
         <img :src="coinImg" alt="coin logo" class="coin-logo">
@@ -32,6 +36,8 @@
 
     </div>
   </div>
+  </div>
+  
 </template>
 
 <script>
@@ -157,8 +163,25 @@ export default {
 
 
 <style scoped>
-
-
+.navigation-box{
+  padding-bottom: 17px;
+}
+.navigation {
+font-family: Inter;
+font-size: 14px;
+font-weight: 400;
+line-height: 16.94px;
+text-align: left;
+color: #3E5765;
+}
+.navigation-coin-name{
+  font-family: Inter;
+font-size: 14px;
+font-weight: 500;
+line-height: 16.94px;
+text-align: left;
+color: #0F1629;
+}
 .coin-container {
   display: flex;
   align-items: center;

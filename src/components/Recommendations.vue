@@ -1,5 +1,5 @@
 <template>
-  <div class="recommendations">
+  <div class="recommendations0">
     <div class="title">You may also like</div>
     <div class="coin-list">
       <CoinCard v-for="coin in recommendCoins" :key="coin.item.id" :coin="coin" class="coin-card"/>
@@ -44,6 +44,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
 }
 
 .title {
@@ -57,13 +58,11 @@ export default {
 .coin-list {
   display: flex;
   justify-content: space-between;
-  overflow-x: auto;
   padding-bottom: 30px;
   gap: 10px;
 
 }
 .coin-card {
-  height: 160px;
   width: 252px;
 }
 @media(max-width:768px){

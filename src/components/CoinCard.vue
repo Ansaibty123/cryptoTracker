@@ -28,11 +28,8 @@ export default {
   gap: 10px;
 }
 .coin-name {
-  gap: 0px;
-  opacity: 0px;
+ 
   padding: 1px 0px 0px 0px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Inter;
   font-size: 16px;
   font-weight: 400;
@@ -48,17 +45,10 @@ export default {
 }
 
 .coin-box {
-  height: 38px;
-  /* border: 1px solid red; */
   box-sizing: border-box;
 }
 .price {
   box-sizing: border-box;
-  height: 24px;
-  gap: 0px;
-  opacity: 0px;
-
-  margin: 0;
   font-family: Inter;
   font-size: 20px;
   font-weight: 500;
@@ -67,7 +57,6 @@ export default {
   color: #171717;
 }
 .items {
-  height: 160px;
   border-radius: 10px;
   border: 1px solid #E3E3E3;
   box-sizing: border-box;
@@ -77,7 +66,6 @@ export default {
 .graph-container {
   height: 65px;
   box-sizing: border-box;
-  /* border: 1px solid black; */
   display: flex ;
   justify-content: center;
   align-items: center;
